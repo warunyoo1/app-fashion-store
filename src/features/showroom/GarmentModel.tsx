@@ -9,6 +9,7 @@ import { createPhotoGarment, readPhotoPixels } from "./photoGeometry";
 import { createFabricBump } from "./fabricTexture";
 import { hangerBodyPoints, hookPoints } from "./garmentRig";
 import { cloneImportedGarment, SHARED_HANGER_FILE } from "./importedGarment";
+import type { HangerStyle } from "./importedGarment";
 import { useGarmentAssetCache } from "./GarmentAssetScope";
 const skipRaycast = () => {};
 
@@ -65,19 +66,20 @@ export function Hanger({ kind, drop = 0 }: { kind: (typeof products)[number]["ki
 }
 
 /** Each display owns its materials so focusing one garment cannot fade another. */
-export function useGarmentModel(index: number, colorway: number) {
+export function useGarmentModel(index: number, colorway: number, hangerStyle: HangerStyle = "wood") {
   const cache = useGarmentAssetCache();
   const product = products[index], way = product.colorways[colorway];
   const photos = useLoader(TextureLoader, product.photographs
     ? [product.photographs.front, product.photographs.back] : []);
   const models = useLoader(GLTFLoader, product.model ? [product.model.file] : []);
-  const sharedHanger = useLoader(GLTFLoader, SHARED_HANGER_FILE);
+  const sharedHangers = useLoader(GLTFLoader, hangerStyle === "wood" ? [SHARED_HANGER_FILE] : []);
   const imported = useMemo(() => product.model && models[0]
-    ? cache.get(`${product.id}:${colorway}`, () => cloneImportedGarment(models[0].scene, way.color, product.model!.colorMaterial, {
+    ? cache.get(`${product.id}:${colorway}:${hangerStyle}`, () => cloneImportedGarment(models[0].scene, way.color, product.model!.colorMaterial, {
       hideNodes: product.model!.hideNodes,
-      hanger: { source: sharedHanger.scene, fit: product.model!.hangerFit },
+      hanger: hangerStyle === "metal" ? { style: "metal", fit: product.model!.metalHangerFit ?? product.model!.hangerFit }
+        : { source: sharedHangers[0].scene, fit: product.model!.hangerFit },
     }))
-    : null, [cache, models, sharedHanger, product, colorway, way]);
+    : null, [cache, models, sharedHangers, product, colorway, way, hangerStyle]);
   const geometry = useMemo(() => imported ? null : product.photographs
     ? createPhotoGarment(readPhotoPixels(photos[0].image), readPhotoPixels(photos[1].image))
     : createGarment(product.kind), [product, photos, imported]);

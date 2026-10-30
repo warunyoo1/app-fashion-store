@@ -16,6 +16,7 @@ const products = models.map((model, i) => ({
   model: { file: `/assets/models/${model.id}/${model.id}.glb`, thumbnails: [`/assets/models/${model.id}/original.jpg`],
     colorMaterial: model.id === 'rose-leather-jacket' ? 'uniform_1001' : '',
     width: model.width, height: model.height, depth: model.depth, hideNodes: [], hangerFit: fits[model.id],
+    ...(model.id === 'western-shirt' ? { metalHangerFit: { widthScale: 1, drop: .32, depth: -.13 } } : {}),
     title: model.title, author: model.author, source: model.source, license: 'https://creativecommons.org/licenses/by/4.0/' },
   colorways: [{ color: model.id === 'western-shirt' ? '#8b4b41' : model.color, accent: model.color, ink: '#f4f1e8',
     colorName: model.id === 'western-shirt' ? 'Rust' : model.id === 'khaki-overshirt' ? 'Leopard / Sand' : model.colorName }],

@@ -15,7 +15,8 @@ function SceneSlot({ indices, detail = false, angle = 0, zoom = 1, reduced, onUn
 }) {
   const container = useRef<HTMLDivElement>(null);
   const [loaded, setLoaded] = useState(false), [active, setActive] = useState(false), [readyKey, setReadyKey] = useState("");
-  const requestKey = indices.join(":");
+  const hangerStyle = detail && products[indices[0]].id === "western-shirt" ? "metal" : "wood";
+  const requestKey = `${indices.join(":")}:${hangerStyle}`;
   const ready = readyKey === requestKey;
   const onReady = useCallback(() => setReadyKey(requestKey), [requestKey]);
   useEffect(() => {
@@ -28,7 +29,7 @@ function SceneSlot({ indices, detail = false, angle = 0, zoom = 1, reduced, onUn
   }, []);
   return <div className={"studio-scene-slot " + (detail ? "detail-scene-slot" : "")} ref={container} aria-busy={!ready}>
     {loaded && <Suspense fallback={null}>
-      <StudioScene indices={indices} detail={detail} angle={angle} zoom={zoom} reduced={reduced} active={active} onReady={onReady} onUnavailable={onUnavailable} />
+      <StudioScene indices={indices} detail={detail} angle={angle} zoom={zoom} reduced={reduced} active={active} hangerStyle={hangerStyle} onReady={onReady} onUnavailable={onUnavailable} />
     </Suspense>}
     {!ready && <div className={"studio-scene-loading" + (readyKey ? " is-switching" : "")} role="status">กำลังจัดเสื้อให้คุณ…</div>}
   </div>;

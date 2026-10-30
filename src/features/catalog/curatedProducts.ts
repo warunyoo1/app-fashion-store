@@ -25,6 +25,11 @@ export const curatedProducts: Product[] = [
         "drop": 0.15,
         "depth": -0.15
       },
+      "metalHangerFit": {
+        "widthScale": 1,
+        "drop": 0.32,
+        "depth": -0.13
+      },
       "title": "Cowboy Shirt",
       "author": "Style3D CG",
       "source": "https://sketchfab.com/3d-models/cowboy-shirt-a3da546b27a34eb0a95adeb2f5921551",

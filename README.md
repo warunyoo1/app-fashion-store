@@ -19,6 +19,7 @@ Open http://127.0.0.1:5175/. `npm run build` checks TypeScript and builds the pr
 - A scrolling landing page led by the original full-viewport interactive 3D rack hero, followed by an interactive 3D collection edit, close-view 3D garment and footer.
 - Collection tabs select three style pairings; CTA buttons open the matching item on the hero. The close-view scene supports rotation and zoom. No walkable store is included.
 - Twelve distinct imported GLB garments with their original surface details, fitted to one consistent wooden hanger. Earlier photographic and procedural samples remain archived.
+- Western Shirt uses a slim brushed-metal hanger specifically in A closer look. Other garments and presentations retain the shared wooden hanger. Each assembly variant has its own prepared cache entry and owned geometry/materials.
 - Browse the long rail with a wheel/trackpad, horizontal drag, arrow buttons or the accessible range control.
 - Hover swings a garment forward; arrow buttons do the same for keyboard and touch.
 - Focus, drag to rotate, front/back button, return to rack.

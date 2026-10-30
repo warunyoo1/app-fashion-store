@@ -13,6 +13,7 @@ export interface Product {
     file: string; thumbnails: string[]; colorMaterial: string;
     width: number; height: number; depth: number;
     hideNodes: string[]; hangerFit: { widthScale: number; drop: number; depth?: number };
+    metalHangerFit?: { widthScale: number; drop: number; depth?: number };
     title: string; author: string; source: string; license: string;
   };
 }

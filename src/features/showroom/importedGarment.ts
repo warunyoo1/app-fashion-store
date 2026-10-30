@@ -1,11 +1,13 @@
 import { Box3, Group, Mesh, MeshStandardMaterial, Vector3 } from "three";
 import type { BufferGeometry } from "three";
+import { createMetalHanger } from "./metalHanger.ts";
 
 export const SHARED_HANGER_FILE = "/assets/models/shared-hanger/wooden-hanger.glb";
 export interface HangerFit { widthScale: number; drop: number; depth?: number }
+export type HangerStyle = "wood" | "metal";
 interface AssemblyOptions {
   hideNodes: readonly string[];
-  hanger: { source: Group; fit: HangerFit };
+  hanger: { style?: "wood"; source: Group; fit: HangerFit } | { style: "metal"; fit: HangerFit };
 }
 
 /** Keep the original hook fixed while fitting the same wooden shoulders inside each collar. */
@@ -29,16 +31,24 @@ export function fitWoodenHanger(geometry: BufferGeometry, fit: HangerFit) {
 export function cloneImportedGarment(source: Group, color: string, colorMaterial: string, assembly?: AssemblyOptions) {
   const object = source.clone(true);
   const ownedGeometries: BufferGeometry[] = [];
+  const ownedMaterials = new Set<MeshStandardMaterial>();
   if (assembly) {
     for (const name of assembly.hideNodes) object.getObjectByName(name)?.removeFromParent();
-    assembly.hanger.source.updateMatrixWorld(true);
-    const original = assembly.hanger.source.getObjectByName("ShirtOnHanger_Hanger_0");
-    if (!(original instanceof Mesh)) throw new Error("Shared wooden hanger is missing from the source model");
-    const geometry = fitWoodenHanger(original.geometry.clone().applyMatrix4(original.matrixWorld), assembly.hanger.fit);
-    const hanger = new Mesh(geometry, original.material);
-    hanger.name = "RACK_shared_wooden_hanger";
-    object.add(hanger);
-    ownedGeometries.push(geometry);
+    if (assembly.hanger.style === "metal") {
+      const hanger = createMetalHanger(assembly.hanger.fit);
+      object.add(hanger.object);
+      ownedGeometries.push(...hanger.geometries);
+      ownedMaterials.add(hanger.material);
+    } else {
+      assembly.hanger.source.updateMatrixWorld(true);
+      const original = assembly.hanger.source.getObjectByName("ShirtOnHanger_Hanger_0");
+      if (!(original instanceof Mesh)) throw new Error("Shared wooden hanger is missing from the source model");
+      const geometry = fitWoodenHanger(original.geometry.clone().applyMatrix4(original.matrixWorld), assembly.hanger.fit);
+      const hanger = new Mesh(geometry, original.material);
+      hanger.name = "RACK_shared_wooden_hanger";
+      object.add(hanger);
+      ownedGeometries.push(geometry);
+    }
   }
   const clones = new Map<MeshStandardMaterial, MeshStandardMaterial>();
   object.traverse(node => {
@@ -46,7 +56,7 @@ export function cloneImportedGarment(source: Group, color: string, colorMaterial
     const clone = (original: MeshStandardMaterial) => {
       let material = clones.get(original);
       if (!material) {
-        material = original.clone();
+        material = ownedMaterials.has(original) ? original : original.clone();
         material.transparent = true;
         // The opaque cloth depth-writes correctly in one double-sided pass; fades stay uniform-only.
         material.forceSinglePass = true;

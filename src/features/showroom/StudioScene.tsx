@@ -11,10 +11,12 @@ import { gsap, ScrollTrigger, motionReduced } from "../../shared/motion/gsap";
 import { createObjectEntrance } from "../../shared/motion/threeMotion";
 import { GarmentAssetScope } from "./GarmentAssetScope";
 import { usePreparedGarment } from "./usePreparedGarment";
+import type { HangerStyle } from "./importedGarment";
 
 interface Props {
   indices: number[]; detail: boolean; angle: number; zoom: number;
   colorway?: number;
+  hangerStyle?: HangerStyle;
   reduced: boolean; active: boolean; onReady: () => void; onUnavailable?: () => void;
 }
 function StudioFallback({ indices, onReady, onUnavailable, colorway = 0 }: Props) {
@@ -24,8 +26,8 @@ function StudioFallback({ indices, onReady, onUnavailable, colorway = 0 }: Props
     <p>อุปกรณ์นี้แสดง 3D ไม่ได้ กดดูรายละเอียดเพื่อเลือกเสื้อได้ครับ</p>
   </div>;
 }
-function StudioGarment({ index, slot, detail, reduced, colorway }: { index: number; slot: number; detail: boolean; reduced: boolean; colorway: number }) {
-  const asset = useGarmentModel(index, colorway);
+function StudioGarment({ index, slot, detail, reduced, colorway, hangerStyle }: { index: number; slot: number; detail: boolean; reduced: boolean; colorway: number; hangerStyle: HangerStyle }) {
+  const asset = useGarmentModel(index, colorway, hangerStyle);
   const reveal = useRef<Group>(null);
   const invalidate = useThree(store => store.invalidate);
   useLayoutEffect(() => {
@@ -43,31 +45,31 @@ function StudioGarment({ index, slot, detail, reduced, colorway }: { index: numb
     </mesh>
   </group></group>;
 }
-function PrepareStudioGarment({ index, colorway, onPrepared }: { index: number; colorway: number; onPrepared: (index: number) => void }) {
-  const asset = useGarmentModel(index, colorway);
+function PrepareStudioGarment({ index, colorway, hangerStyle, onPrepared }: { index: number; colorway: number; hangerStyle: HangerStyle; onPrepared: (index: number) => void }) {
+  const asset = useGarmentModel(index, colorway, hangerStyle);
   const ready = usePreparedGarment(asset);
   useEffect(() => { if (ready) onPrepared(index); }, [ready, index, onPrepared]);
   return null;
 }
-function PrepareStudioPair({ indices, colorway, onPrepared }: { indices: number[]; colorway: number; onPrepared: () => void }) {
+function PrepareStudioPair({ indices, colorway, hangerStyle, onPrepared }: { indices: number[]; colorway: number; hangerStyle: HangerStyle; onPrepared: () => void }) {
   const completed = useRef(new Set<number>());
   const onGarmentPrepared = useCallback((index: number) => {
     completed.current.add(index);
     if (indices.every(item => completed.current.has(item))) onPrepared();
   }, [indices, onPrepared]);
   return indices.map(index => <Suspense key={index} fallback={null}>
-    <PrepareStudioGarment index={index} colorway={colorway} onPrepared={onGarmentPrepared} />
+    <PrepareStudioGarment index={index} colorway={colorway} hangerStyle={hangerStyle} onPrepared={onGarmentPrepared} />
   </Suspense>);
 }
-function StudioStage({ indices, detail, angle, zoom, reduced, active, onReady, colorway = 0 }: Props) {
+function StudioStage({ indices, detail, angle, zoom, reduced, active, onReady, colorway = 0, hangerStyle = "wood" }: Props) {
   const { gl, scene, camera, size, invalidate } = useThree();
   const [environmentReady, setEnvironmentReady] = useState(false);
-  const [displayed, setDisplayed] = useState<{ key: string; indices: number[]; colorway: number } | null>(null);
-  const requestKey = `${indices.join(":")}:${colorway}`;
+  const [displayed, setDisplayed] = useState<{ key: string; indices: number[]; colorway: number; hangerStyle: HangerStyle } | null>(null);
+  const requestKey = `${indices.join(":")}:${colorway}:${hangerStyle}`;
   const onPrepared = useCallback(() => {
-    setDisplayed(previous => previous?.key === requestKey ? previous : { key: requestKey, indices, colorway });
+    setDisplayed(previous => previous?.key === requestKey ? previous : { key: requestKey, indices, colorway, hangerStyle });
     onReady(); invalidate();
-  }, [requestKey, indices, colorway, onReady, invalidate]);
+  }, [requestKey, indices, colorway, hangerStyle, onReady, invalidate]);
   const root = useRef<Group>(null), targetZoom = useRef(100), initialized = useRef(false);
   const entrance = useRef<Group>(null), isActive = useRef(active);
   isActive.current = active;
@@ -137,8 +139,8 @@ function StudioStage({ indices, detail, angle, zoom, reduced, active, onReady, c
       shadow-normalBias={.02} shadow-bias={-.0001} />
     <directionalLight position={[4, 2, -3]} intensity={.6} />
     <mesh position={[0, 0, -1.4]} receiveShadow><planeGeometry args={[18,14]} /><shadowMaterial opacity={detail ? .13 : .06} depthWrite={false} /></mesh>
-    {environmentReady && active && <PrepareStudioPair key={requestKey} indices={indices} colorway={colorway} onPrepared={onPrepared} />}
-    <group ref={entrance}><group ref={root}>{displayed?.indices.map((index, slot) => <StudioGarment key={`${index}:${displayed.colorway}`} index={index} slot={slot} detail={detail} reduced={reduced} colorway={displayed.colorway} />)}</group></group>
+    {environmentReady && active && <PrepareStudioPair key={requestKey} indices={indices} colorway={colorway} hangerStyle={hangerStyle} onPrepared={onPrepared} />}
+    <group ref={entrance}><group ref={root}>{displayed?.indices.map((index, slot) => <StudioGarment key={`${index}:${displayed.colorway}:${displayed.hangerStyle}`} index={index} slot={slot} detail={detail} reduced={reduced} colorway={displayed.colorway} hangerStyle={displayed.hangerStyle} />)}</group></group>
   </>;
 }
 export default memo(function StudioScene(props: Props) {
