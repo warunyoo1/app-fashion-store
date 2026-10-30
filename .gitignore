@@ -22,6 +22,12 @@ node_modules/
 /.impeccable/review/
 /assets/garments/previews/
 
+# Local tests
+/tests/
+__tests__/
+*.test.*
+*.spec.*
+
 # Locally installed AI skills
 /.agents/skills/
 
