@@ -1,0 +1,582 @@
+:root {
+  font-family: "DM Sans", "Noto Sans Thai", sans-serif;
+  color: var(--ink);
+  background: var(--paper);
+  font-synthesis: none;
+  --display: "Oswald", "Noto Sans Thai", sans-serif;
+  --control-size: 44px;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  min-width: 320px;
+  background: var(--paper);
+  overflow-x: hidden;
+}
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+  transition:
+    background-color 0.15s,
+    color 0.15s,
+    border-color 0.15s;
+}
+button {
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+button:disabled {
+  cursor: default;
+  opacity: 0.45;
+}
+button:active:not(:disabled) {
+  transform: translateY(1px);
+}
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 3px;
+}
+button svg {
+  flex: none;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+::selection {
+  background: var(--selected);
+  color: var(--ink);
+}
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+.storefront {
+  height: 100svh;
+  min-height: 520px;
+  display: flex;
+  flex-direction: column;
+}
+
+.icon-button {
+  width: var(--control-size);
+  height: var(--control-size);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 0;
+  border-radius: 50%;
+  position: relative;
+}
+.icon-button:hover {
+  background: var(--surface-hover);
+}
+.is-saved {
+  color: var(--accent);
+}
+.count-dot {
+  position: absolute;
+  right: 3px;
+  top: 3px;
+  background: var(--accent);
+  color: var(--ink);
+  border-radius: 50%;
+  font-size: 8px;
+  font-weight: 700;
+  min-width: 14px;
+  height: 14px;
+  display: grid;
+  place-items: center;
+}
+
+/* Showroom */
+.showroom {
+  position: relative;
+  isolation: isolate;
+  flex: 1;
+  min-height: 0;
+  touch-action: pan-y;
+}
+.scene {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+.scene canvas {
+  display: block;
+  touch-action: pan-y;
+}
+.is-focused .scene canvas {
+  cursor: grab;
+}
+.scene-loading {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  display: flex;
+  gap: 9px;
+  align-items: center;
+  justify-content: center;
+  background: var(--paper);
+  font-size: 11px;
+  color: var(--muted);
+}
+.scene-loading > span {
+  width: 12px;
+  height: 12px;
+  border: 2px solid var(--line);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.catalog-fallback {
+  position: absolute;
+  inset: 90px 8% 180px;
+  overflow: auto;
+  color: var(--ink);
+  text-align: center;
+  padding: 12px;
+}
+.catalog-fallback > p {
+  font-size: 12px;
+  line-height: 1.8;
+  color: var(--muted);
+}
+.fallback-products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 12px;
+}
+.fallback-products button {
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+  padding: 14px;
+  border: 1px solid var(--line);
+  background: var(--paper);
+  border-radius: 12px;
+  font-size: 12px;
+}
+.fallback-products button:hover {
+  border-color: var(--focus);
+}
+.catalog-fallback.is-preview {
+  display: grid;
+  align-content: center;
+  justify-items: center;
+}
+.catalog-fallback.is-preview .bag-photo,
+.catalog-fallback.is-preview .mini-garment.static {
+  width: 180px;
+  height: 220px;
+}
+.browse-bar {
+  position: absolute;
+  z-index: 2;
+  left: 16px;
+  right: 16px;
+  top: calc(var(--rail-y) + var(--unit) * 2.95);
+  display: grid;
+  justify-items: center;
+  gap: 14px;
+  animation: rise 0.4s ease both;
+}
+.hint {
+  margin: 0;
+  font-size: 11px;
+  color: var(--muted);
+  text-align: center;
+  min-height: 1.5em;
+}
+.rack-picker,
+.detail-tools {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.round-arrow {
+  width: var(--control-size);
+  height: var(--control-size);
+  display: grid;
+  place-items: center;
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+}
+.round-arrow:hover {
+  background: var(--surface-hover);
+}
+.pill-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: var(--control-size);
+  padding: 0 16px;
+  border: 1px solid var(--line);
+  border-radius: 99px;
+  background: var(--surface);
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+.pill-button:hover:not(:disabled) {
+  border-color: var(--line-strong);
+}
+.pill-button.dark {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--on-accent);
+}
+.pill-button.dark:hover {
+  background: var(--accent-hover);
+}
+.full-width {
+  width: 100%;
+  min-height: 44px;
+}
+
+/* Focused garment */
+.back-to-rack {
+  position: absolute;
+  z-index: 3;
+  top: 12px;
+  left: clamp(16px, 3vw, 40px);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-height: var(--control-size);
+  padding: 0 12px 0 10px;
+  font-size: 12px;
+  background: none;
+  border: 1px solid var(--line);
+  border-radius: 99px;
+}
+.back-to-rack:hover {
+  background: var(--surface-hover);
+}
+.mini-garment {
+  width: var(--control-size);
+  height: 48px;
+  padding: 6px;
+  display: grid;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  background: none;
+  /* Clip-path drops box-shadow, so outline pale colourways from the parent. */
+  filter: drop-shadow(0 0 0.6px #0000004d);
+}
+.mini-garment > span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    var(--swatch) 0 28%,
+    var(--accent) 28% 36%,
+    var(--swatch) 36%
+  );
+  box-shadow: inset 0 0 0 1px #0000000f;
+  clip-path: polygon(
+    32% 0,
+    68% 0,
+    100% 16%,
+    92% 38%,
+    80% 33%,
+    80% 100%,
+    20% 100%,
+    20% 33%,
+    8% 38%,
+    0 16%
+  );
+}
+.mini-garment[data-kind="tank"] > span {
+  clip-path: polygon(30% 0, 40% 0, 50% 18%, 60% 0, 70% 0, 82% 34%, 82% 100%, 18% 100%, 18% 34%);
+}
+.mini-garment[data-kind="longsleeve"] > span,
+.mini-garment[data-kind="jacket"] > span {
+  background: linear-gradient(
+    90deg,
+    var(--accent) 0 18%,
+    var(--swatch) 18% 82%,
+    var(--accent) 82%
+  );
+  clip-path: polygon(32% 0, 68% 0, 100% 16%, 100% 88%, 82% 88%, 82% 100%, 18% 100%, 18% 88%, 0 88%, 0 16%);
+}
+.mini-garment:hover {
+  background: var(--surface-hover);
+}
+.mini-garment.static {
+  width: 44px;
+  height: 54px;
+  flex: none;
+  background: var(--cream);
+  padding: 7px;
+}
+.product-detail {
+  position: absolute;
+  z-index: 3;
+  left: 16px;
+  right: 16px;
+  bottom: clamp(14px, 3vh, 32px);
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+  text-align: center;
+  animation: rise 0.45s 0.12s ease both;
+}
+.product-detail h2 {
+  margin: 0;
+  font: 600 13px/1.2 var(--display);
+  letter-spacing: 0.01em;
+}
+.product-detail > p {
+  margin: 0;
+  font-size: 11px;
+  color: var(--muted);
+}
+.detail-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 4px;
+}
+.size-selection {
+  display: flex;
+  gap: 4px;
+}
+.size-selection > button {
+  min-width: var(--control-size);
+  height: var(--control-size);
+  padding: 0 8px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  border-radius: 99px;
+  font-size: 12px;
+}
+.size-selection > button[aria-pressed="true"] {
+  border-color: var(--ink);
+  font-weight: 700;
+}
+.detail-actions .pill-button {
+  min-height: var(--control-size);
+}
+.detail-tools .round-arrow {
+  width: var(--control-size);
+  height: var(--control-size);
+}
+.detail-tools .icon-button {
+  width: var(--control-size);
+  height: var(--control-size);
+}
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+.accent-bar {
+  height: 12px;
+  flex: none;
+  background: var(--accent);
+}
+
+/* Toast & dialogs */
+.toast {
+  position: fixed;
+  z-index: 6;
+  top: 70px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-size: 11px;
+  background: var(--ink);
+  color: var(--on-accent);
+  padding: 12px 18px;
+  border-radius: 99px;
+  box-shadow: var(--shadow-panel);
+  max-width: calc(100% - 32px);
+  width: max-content;
+}
+.toast svg {
+  color: var(--accent);
+}
+.dialog {
+  width: 500px;
+  max-width: calc(100% - 32px);
+  max-height: calc(100dvh - 40px);
+  padding: 0;
+  background: var(--paper);
+  color: var(--ink);
+  border: 0;
+  border-radius: 14px;
+  box-shadow: var(--shadow-panel);
+  overflow: auto;
+}
+.dialog::backdrop {
+  background: var(--overlay);
+  backdrop-filter: blur(5px);
+}
+.dialog-body {
+  padding: 34px 28px 28px;
+  position: relative;
+}
+.dialog h2 {
+  font: 600 30px/1.15 var(--display);
+  letter-spacing: -0.02em;
+  margin: 0 40px 22px 0;
+}
+.close-dialog {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+}
+.studio-copy {
+  font-size: 13px;
+  line-height: 2;
+  color: var(--muted);
+  margin: 18px 0 26px;
+}
+.prototype-note {
+  padding: 20px 0;
+  border-top: 1px solid var(--line);
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+.prototype-note > svg {
+  flex: none;
+  color: var(--accent);
+}
+.prototype-note p,
+.bag-notice {
+  font-size: 11px;
+  color: var(--muted);
+  line-height: 1.8;
+  margin: 0 0 20px;
+}
+.empty-state {
+  text-align: center;
+  padding: 14px 0 6px;
+}
+.empty-state > svg {
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+.empty-state h3 {
+  font-size: 16px;
+  font-weight: 500;
+  margin: 8px 0;
+}
+.empty-state p {
+  font-size: 12px;
+  line-height: 1.8;
+  color: var(--muted);
+  margin-bottom: 24px;
+}
+.bag-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 0;
+  border-top: 1px solid var(--line);
+}
+.bag-item-info {
+  flex: 1;
+  min-width: 0;
+}
+.bag-item-info > strong,
+.saved-item-name > strong {
+  font-size: 13px;
+  font-weight: 500;
+  display: block;
+}
+.bag-item-info > span,
+.saved-item-name > span {
+  font-size: 12px;
+  color: var(--muted);
+  display: block;
+  margin-top: 5px;
+}
+.quantity-control {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+}
+.quantity-control button {
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: none;
+  width: var(--control-size);
+  height: var(--control-size);
+  display: grid;
+  place-items: center;
+}
+.item-price {
+  font-size: 13px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+.bag-total {
+  border-top: 1px solid var(--line);
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: 13px;
+}
+.bag-total strong {
+  font-size: 20px;
+  font-weight: 500;
+}
+.saved-item-name {
+  flex: 1;
+  text-align: left;
+  min-width: 0;
+  background: none;
+  border: 0;
+  padding: 10px 0;
+}
+
+@media (max-width: 600px) {
+  .hint {
+    font-size: 10px;
+  }
+  .product-detail {
+    bottom: 12px;
+    gap: 6px;
+  }
+  .back-to-rack {
+    top: 6px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *:before,
+  *:after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

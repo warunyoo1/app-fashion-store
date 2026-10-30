@@ -1,0 +1,108 @@
+.colorway-picker {
+  position: absolute;
+  z-index: 3;
+  top: calc(var(--rail-y) + var(--unit) * .45);
+  left: min(calc(50% + var(--unit) * 1.55), calc(100% - 188px));
+  width: 172px;
+  min-width: 0;
+  margin: 0;
+  padding: 12px 14px;
+  border: 0;
+  border-radius: 14px;
+  background: var(--surface);
+  color: var(--ink);
+}
+.colorway-picker legend {
+  float: left;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin: 0 0 8px;
+  padding: 0;
+  font-size: 12px;
+  font-weight: 500;
+}
+.colorway-picker legend span {
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--muted);
+}
+.colorway-options {
+  clear: both;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.colorway-option {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: var(--control-size);
+  height: var(--control-size);
+  border-radius: 50%;
+  cursor: pointer;
+  touch-action: manipulation;
+  transition: background-color .15s;
+}
+.colorway-option:hover {
+  background: var(--surface-hover);
+}
+.colorway-option:has(input:focus-visible) {
+  outline: 2px solid var(--focus);
+  outline-offset: 3px;
+}
+.colorway-swatch {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  border: 1px solid var(--line-strong);
+  border-radius: 50%;
+  background: linear-gradient(90deg,
+    var(--colorway-accent) 0 20%,
+    var(--colorway-base) 20% 80%,
+    var(--colorway-accent) 80% 100%);
+}
+.colorway-option input:checked + .colorway-swatch {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+.colorway-check {
+  position: absolute;
+  right: -4px;
+  bottom: -4px;
+  display: none;
+  place-items: center;
+  width: 17px;
+  height: 17px;
+  border: 2px solid var(--surface);
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--on-accent);
+}
+.colorway-option input:checked + .colorway-swatch .colorway-check {
+  display: grid;
+}
+.colorway-name {
+  margin: 9px 0 0;
+  font-size: 12px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+@media (max-width: 600px) {
+  .colorway-picker {
+    top: 18px;
+    right: 16px;
+    left: auto;
+    width: 132px;
+    padding: 10px;
+  }
+  .colorway-name {
+    font-size: 11px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .colorway-option {
+    transition: none;
+  }
+}

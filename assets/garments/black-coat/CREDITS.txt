@@ -1,0 +1,4 @@
+Black jacket coat by Style3D CG
+https://sketchfab.com/3d-models/black-jacket-coat-2181e25803164fd690c0debb4d4f391a
+CC BY 4.0: https://creativecommons.org/licenses/by/4.0/
+Adapted for RACK: world transforms baked, geometry simplified with locked borders and normal/UV weighting, matching-material surfaces merged, uniformly fitted to the clothing rail. Original PBR texture images retained. Shared wooden hanger by plaggy is added separately. Product names, sizes and prices are demonstration data.

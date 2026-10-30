@@ -1,0 +1,35 @@
+{
+  "asset": "plaggy-tshirt",
+  "file": "plaggy-tshirt.glb",
+  "author": "plaggy",
+  "source": "https://opengameart.org/content/t-shirt-and-hanger",
+  "license": "CC0-1.0",
+  "preparedOn": "2026-10-29",
+  "sha256": "6741ba315ef96e4defe63209bbde4bb996110912e4f6fb5f6e153579cf72130d",
+  "bytes": 231176,
+  "triangles": 2048,
+  "vertices": 1105,
+  "primitives": 3,
+  "materials": 3,
+  "embeddedImages": 1,
+  "decodersRequired": [],
+  "bounds": {
+    "min": [
+      -0.4058801233768463,
+      -1,
+      -0.017640335485339165
+    ],
+    "max": [
+      0.4058801233768463,
+      0,
+      0.017640335485339165
+    ],
+    "size": [
+      0.8117602467536926,
+      1,
+      0.03528067097067833
+    ]
+  },
+  "placement": "Y up; 1m total height; hook top at Y=0; garment and hanger extend below origin; hook contact point must be fitted to the rail.",
+  "animation": "Static geometry. No cloth simulation or rig."
+}

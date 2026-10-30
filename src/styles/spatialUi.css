@@ -1,0 +1,253 @@
+:root {
+  --spatial-paper: var(--surface);
+  --spatial-ink: var(--ink);
+  --spatial-matte: var(--surface);
+  --spatial-action: var(--ink);
+  --spatial-key: none;
+  --spatial-pressed: var(--shadow-pressed);
+  --spatial-panel: var(--shadow-panel);
+}
+
+.dialog .icon-button,
+.round-arrow,
+.pill-button,
+.size-selection > button,
+.quantity-control button,
+.menu-preview-controls > button {
+  border: 1px solid var(--line);
+  background: var(--spatial-matte);
+  box-shadow: var(--spatial-key);
+  color: var(--spatial-ink);
+  transition: transform 150ms ease-out, background-color 150ms ease-out, box-shadow 150ms ease-out;
+}
+.pill-button.dark,
+.size-selection > button[aria-pressed="true"] {
+  background: var(--spatial-action);
+  color: var(--on-accent);
+  border-color: var(--ink);
+  box-shadow: none;
+}
+.pill-button:active:not(:disabled),
+.round-arrow:active:not(:disabled),
+.quantity-control button:active,
+.menu-preview-controls > button:active {
+  transform: translateY(1px);
+  box-shadow: var(--spatial-pressed);
+}
+.colorway-picker {
+  background: var(--spatial-matte);
+  box-shadow: var(--spatial-key);
+}
+.colorway-swatch {
+  box-shadow: none;
+}
+.detail-view-controls {
+  border: 0;
+  border-radius: 16px;
+  background: var(--surface);
+  box-shadow: var(--shadow-control);
+}
+.dialog {
+  width: 540px;
+  background: var(--spatial-paper);
+  border-radius: 20px;
+  box-shadow: var(--spatial-panel);
+  scrollbar-width: thin;
+  scrollbar-color: var(--scroll-thumb) var(--cream);
+}
+.dialog::backdrop {
+  background: var(--overlay);
+  backdrop-filter: none;
+}
+.dialog-body {
+  padding: 30px;
+  background: var(--surface);
+}
+.dialog h2 {
+  margin-right: 52px;
+  color: var(--spatial-ink);
+}
+.dialog .close-dialog {
+  border-radius: 12px;
+}
+.dialog-heading {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: -30px -30px 18px;
+  padding: 20px 30px 16px;
+  background: var(--surface);
+  box-shadow: none;
+  border-bottom: 1px solid var(--line);
+}
+.dialog .dialog-heading h2 {
+  margin: 0;
+}
+.dialog .dialog-heading .close-dialog {
+  position: static;
+  flex: none;
+  margin-left: auto;
+}
+.dialog .bag-item {
+  gap: 16px;
+  border-color: var(--line);
+}
+.dialog .bag-item-info strong,
+.dialog .saved-item-name strong {
+  font-size: 14px;
+  line-height: 1.5;
+}
+.dialog .empty-state {
+  padding-top: 0;
+}
+.dialog .empty-state > svg {
+  width: 44px;
+  height: 44px;
+  padding: 10px;
+  color: var(--ink);
+  border-radius: 12px;
+  background: var(--spatial-matte);
+  box-shadow: var(--spatial-key);
+}
+.dialog .bag-total {
+  border-color: var(--line);
+}
+.dialog .bag-total strong {
+  font-variant-numeric: tabular-nums;
+}
+.menu-product-preview {
+  margin: 0 0 24px;
+  color: var(--spatial-ink);
+}
+.menu-preview-stage {
+  position: relative;
+  height: 236px;
+  overflow: hidden;
+  isolation: isolate;
+  border-radius: 14px;
+  background: var(--cream);
+  box-shadow: none;
+}
+.menu-preview-stage > div {
+  z-index: 1;
+}
+.menu-preview-stage .studio-fallback {
+  gap: 10px;
+  padding: 14px;
+}
+.menu-preview-stage .studio-fallback :is(.bag-photo, .mini-garment.static) {
+  width: 72px;
+  height: 88px;
+}
+.menu-preview-orbit {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  width: 130px;
+  height: 28px;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: var(--cream);
+  box-shadow: none;
+}
+.menu-preview-loading {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  background: var(--cream);
+  font-size: 12px;
+}
+.menu-preview-caption {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+  margin-top: 14px;
+}
+.menu-preview-caption strong {
+  font-size: 14px;
+  font-weight: 500;
+}
+.menu-preview-caption > span {
+  font-size: 11px;
+  color: var(--muted);
+}
+.menu-preview-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin-top: 10px;
+}
+.menu-preview-controls > button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 8px 14px;
+  border-radius: 10px;
+  font-size: 12px;
+}
+.menu-preview-controls > label {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 11px;
+  color: var(--muted);
+}
+.menu-preview-controls input {
+  width: 88px;
+  height: 44px;
+  accent-color: var(--accent);
+}
+.toast {
+  background: var(--spatial-action);
+  box-shadow: var(--shadow-panel);
+}
+
+@media (max-width: 600px) {
+  .dialog {
+    max-width: calc(100% - 24px);
+    max-height: calc(100dvh - 24px);
+  }
+  .dialog-body {
+    padding: 24px 20px;
+  }
+  .dialog h2 {
+    font-size: 27px;
+    margin-bottom: 20px;
+  }
+  .dialog-heading {
+    gap: 12px;
+    margin: -24px -20px 18px;
+    padding: 18px 20px 12px;
+  }
+  .menu-preview-stage {
+    height: 208px;
+  }
+  .menu-preview-controls input {
+    width: 64px;
+  }
+  .menu-preview-controls > button {
+    padding-inline: 10px;
+  }
+  .dialog .bag-item {
+    display: grid;
+    grid-template-columns: 44px minmax(0, 1fr) auto;
+    gap: 12px;
+  }
+  .dialog .item-price {
+    grid-column: 2 / -1;
+  }
+}
+@media (max-height: 700px) {
+  .menu-preview-stage {
+    height: 180px;
+  }
+}

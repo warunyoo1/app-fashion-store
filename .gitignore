@@ -1,0 +1,55 @@
+# Dependencies
+node_modules/
+
+# Build output
+/dist/
+/dist-ssr/
+*.tsbuildinfo
+
+# Local caches and generated test reports
+/.vite/
+/.cache/
+/coverage/
+/.nyc_output/
+/test-results/
+/playwright-report/
+.eslintcache
+.stylelintcache
+.prettiercache
+
+# Local QA artifacts and generated model previews
+/.qa/
+/.impeccable/review/
+/assets/garments/previews/
+
+# Locally installed AI skills
+/.agents/skills/
+
+# Machine-specific tool settings; shared project configs remain versionable
+/.impeccable/config.local.json
+/.claude/settings.local.json
+/.claude/settings.local.*.json
+/.vscode/*.local.json
+/.idea/
+*.code-workspace
+
+# Local environment values; commit only safe example/template files
+.env
+.env.*
+!.env.example
+!.env.*.example
+!.env.template
+!.env.*.template
+
+# Logs, editor backups, temporary files and OS metadata
+*.log
+*.log.*
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+Desktop.ini

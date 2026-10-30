@@ -1,0 +1,296 @@
+{
+  "id": "funlab-tee",
+  "title": "T Shirt",
+  "author": "funlab117",
+  "authorUrl": "https://sketchfab.com/funlab117",
+  "source": "https://sketchfab.com/3d-models/t-shirt-c1a3e5eb9b5445f4b7d4be82f1127eba",
+  "license": "CC-BY-4.0",
+  "role": "Active Relaxed Tee, reduced and fitted by prepare-relaxed-tee.mjs. Uses the separately extracted shared wooden hanger.",
+  "licenseNote": "Official download panel permits commercial use with author attribution. Source geometry is unmodified here; rail-model-info.json records the simplified display asset.",
+  "file": "funlab-tee/source.glb",
+  "downloadedOn": "2026-10-29",
+  "textureVariant": "Official GLB; no embedded texture images",
+  "bytes": 6786916,
+  "sha256": "174d2439c1505a928e189234209a65656646c89c9c6344963c9f5c82b30831f1",
+  "triangles": 237938,
+  "primitives": 10,
+  "materials": [
+    "Body_FRONT_2664",
+    "Sleeves_FRONT_2669"
+  ],
+  "embeddedImages": 0,
+  "extensionsRequired": [],
+  "animations": 0,
+  "structuralCheck": "GLB 2 header, embedded buffers/images and buffer-view ranges passed; full Khronos validation not run.",
+  "nodes": [
+    {
+      "index": 0,
+      "name": "Sketchfab_model",
+      "children": [
+        1
+      ]
+    },
+    {
+      "index": 1,
+      "name": "root",
+      "children": [
+        2
+      ]
+    },
+    {
+      "index": 2,
+      "name": "GLTF_SceneRootNode",
+      "children": [
+        3
+      ]
+    },
+    {
+      "index": 3,
+      "name": "T_shirt_gltf.zip_Scene_Node_0",
+      "children": [
+        4
+      ]
+    },
+    {
+      "index": 4,
+      "name": "Cloth_1",
+      "children": [
+        5,
+        7,
+        9,
+        13,
+        17,
+        19
+      ]
+    },
+    {
+      "index": 5,
+      "name": "Ribbing_Node_2",
+      "children": [
+        6
+      ]
+    },
+    {
+      "index": 6,
+      "name": "Object_6",
+      "mesh": 0
+    },
+    {
+      "index": 7,
+      "name": "Ribbing_Node_3",
+      "children": [
+        8
+      ]
+    },
+    {
+      "index": 8,
+      "name": "Object_8",
+      "mesh": 1
+    },
+    {
+      "index": 9,
+      "name": "Body_Front_Node_4",
+      "children": [
+        10,
+        11,
+        12
+      ]
+    },
+    {
+      "index": 10,
+      "name": "Object_10",
+      "mesh": 2
+    },
+    {
+      "index": 11,
+      "name": "Object_11",
+      "mesh": 3
+    },
+    {
+      "index": 12,
+      "name": "Object_12",
+      "mesh": 4
+    },
+    {
+      "index": 13,
+      "name": "Body_Back_Node_5",
+      "children": [
+        14,
+        15,
+        16
+      ]
+    },
+    {
+      "index": 14,
+      "name": "Object_14",
+      "mesh": 5
+    },
+    {
+      "index": 15,
+      "name": "Object_15",
+      "mesh": 6
+    },
+    {
+      "index": 16,
+      "name": "Object_16",
+      "mesh": 7
+    },
+    {
+      "index": 17,
+      "name": "Sleeves_Node_6",
+      "children": [
+        18
+      ]
+    },
+    {
+      "index": 18,
+      "name": "Object_18",
+      "mesh": 8
+    },
+    {
+      "index": 19,
+      "name": "Sleeves_Node_7",
+      "children": [
+        20
+      ]
+    },
+    {
+      "index": 20,
+      "name": "Object_20",
+      "mesh": 9
+    }
+  ],
+  "meshes": [
+    {
+      "index": 0,
+      "name": "Object_0",
+      "primitives": [
+        {
+          "triangles": 2012,
+          "vertices": 1231,
+          "material": "Body_FRONT_2664",
+          "normals": true,
+          "uv": true
+        }
+      ]
+    },
+    {
+      "index": 1,
+      "name": "Object_1",
+      "primitives": [
+        {
+          "triangles": 2774,
+          "vertices": 1682,
+          "material": "Body_FRONT_2664",
+          "normals": true,
+          "uv": true
+        }
+      ]
+    },
+    {
+      "index": 2,
+      "name": "Object_2",
+      "primitives": [
+        {
+          "triangles": 44134,
+          "vertices": 22320,
+          "material": "Body_FRONT_2664",
+          "normals": true,
+          "uv": true
+        }
+      ]
+    },
+    {
+      "index": 3,
+      "name": "Object_3",
+      "primitives": [
+        {
+          "triangles": 44134,
+          "vertices": 22320,
+          "material": "Body_FRONT_2664",
+          "normals": true,
+          "uv": true
+        }
+      ]
+    },
+    {
+      "index": 4,
+      "name": "Object_4",
+      "primitives": [
+        {
+          "triangles": 6048,
+          "vertices": 3612,
+          "material": "Body_FRONT_2664",
+          "normals": true,
+          "uv": true
+        }
+      ]
+    },
+    {
+      "index": 5,
+      "name": "Object_5",
+      "primitives": [
+        {
+          "triangles": 48042,
+          "vertices": 24268,
+          "material": "Body_FRONT_2664",
+          "normals": true,
+          "uv": true
+        }
+      ]
+    },
+    {
+      "index": 6,
+      "name": "Object_6",
+      "primitives": [
+        {
+          "triangles": 48042,
+          "vertices": 24268,
+          "material": "Body_FRONT_2664",
+          "normals": true,
+          "uv": true
+        }
+      ]
+    },
+    {
+      "index": 7,
+      "name": "Object_7",
+      "primitives": [
+        {
+          "triangles": 5904,
+          "vertices": 3528,
+          "material": "Body_FRONT_2664",
+          "normals": true,
+          "uv": true
+        }
+      ]
+    },
+    {
+      "index": 8,
+      "name": "Object_8",
+      "primitives": [
+        {
+          "triangles": 18468,
+          "vertices": 9679,
+          "material": "Sleeves_FRONT_2669",
+          "normals": true,
+          "uv": true
+        }
+      ]
+    },
+    {
+      "index": 9,
+      "name": "Object_9",
+      "primitives": [
+        {
+          "triangles": 18380,
+          "vertices": 9635,
+          "material": "Sleeves_FRONT_2669",
+          "normals": true,
+          "uv": true
+        }
+      ]
+    }
+  ],
+  "attribution": "\"T Shirt\" by funlab117 (https://sketchfab.com/3d-models/t-shirt-c1a3e5eb9b5445f4b7d4be82f1127eba), licensed CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)."
+}

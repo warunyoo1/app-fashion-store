@@ -1,0 +1,882 @@
+{
+  "reviewedOn": "2026-10-29",
+  "integration": "Twelve distinct imported garments: five existing products plus seven curated Style3D/Obridje models. The scrollable rail mounts visible neighbours and uses the shared wooden hanger. Sources are unchanged and all models are credited.",
+  "assets": [
+    {
+      "id": "funlab-tee",
+      "title": "T Shirt",
+      "author": "funlab117",
+      "authorUrl": "https://sketchfab.com/funlab117",
+      "source": "https://sketchfab.com/3d-models/t-shirt-c1a3e5eb9b5445f4b7d4be82f1127eba",
+      "license": "CC-BY-4.0",
+      "role": "Active Relaxed Tee, reduced and fitted by prepare-relaxed-tee.mjs. Uses the separately extracted shared wooden hanger.",
+      "licenseNote": "Official download panel permits commercial use with author attribution. Source geometry is unmodified here; rail-model-info.json records the simplified display asset.",
+      "file": "funlab-tee/source.glb",
+      "downloadedOn": "2026-10-29",
+      "textureVariant": "Official GLB; no embedded texture images",
+      "bytes": 6786916,
+      "sha256": "174d2439c1505a928e189234209a65656646c89c9c6344963c9f5c82b30831f1",
+      "triangles": 237938,
+      "primitives": 10,
+      "materials": [
+        "Body_FRONT_2664",
+        "Sleeves_FRONT_2669"
+      ],
+      "embeddedImages": 0,
+      "extensionsRequired": [],
+      "animations": 0,
+      "structuralCheck": "GLB 2 header, embedded buffers/images and buffer-view ranges passed; full Khronos validation not run.",
+      "nodes": [
+        {
+          "index": 0,
+          "name": "Sketchfab_model",
+          "children": [
+            1
+          ]
+        },
+        {
+          "index": 1,
+          "name": "root",
+          "children": [
+            2
+          ]
+        },
+        {
+          "index": 2,
+          "name": "GLTF_SceneRootNode",
+          "children": [
+            3
+          ]
+        },
+        {
+          "index": 3,
+          "name": "T_shirt_gltf.zip_Scene_Node_0",
+          "children": [
+            4
+          ]
+        },
+        {
+          "index": 4,
+          "name": "Cloth_1",
+          "children": [
+            5,
+            7,
+            9,
+            13,
+            17,
+            19
+          ]
+        },
+        {
+          "index": 5,
+          "name": "Ribbing_Node_2",
+          "children": [
+            6
+          ]
+        },
+        {
+          "index": 6,
+          "name": "Object_6",
+          "mesh": 0
+        },
+        {
+          "index": 7,
+          "name": "Ribbing_Node_3",
+          "children": [
+            8
+          ]
+        },
+        {
+          "index": 8,
+          "name": "Object_8",
+          "mesh": 1
+        },
+        {
+          "index": 9,
+          "name": "Body_Front_Node_4",
+          "children": [
+            10,
+            11,
+            12
+          ]
+        },
+        {
+          "index": 10,
+          "name": "Object_10",
+          "mesh": 2
+        },
+        {
+          "index": 11,
+          "name": "Object_11",
+          "mesh": 3
+        },
+        {
+          "index": 12,
+          "name": "Object_12",
+          "mesh": 4
+        },
+        {
+          "index": 13,
+          "name": "Body_Back_Node_5",
+          "children": [
+            14,
+            15,
+            16
+          ]
+        },
+        {
+          "index": 14,
+          "name": "Object_14",
+          "mesh": 5
+        },
+        {
+          "index": 15,
+          "name": "Object_15",
+          "mesh": 6
+        },
+        {
+          "index": 16,
+          "name": "Object_16",
+          "mesh": 7
+        },
+        {
+          "index": 17,
+          "name": "Sleeves_Node_6",
+          "children": [
+            18
+          ]
+        },
+        {
+          "index": 18,
+          "name": "Object_18",
+          "mesh": 8
+        },
+        {
+          "index": 19,
+          "name": "Sleeves_Node_7",
+          "children": [
+            20
+          ]
+        },
+        {
+          "index": 20,
+          "name": "Object_20",
+          "mesh": 9
+        }
+      ],
+      "meshes": [
+        {
+          "index": 0,
+          "name": "Object_0",
+          "primitives": [
+            {
+              "triangles": 2012,
+              "vertices": 1231,
+              "material": "Body_FRONT_2664",
+              "normals": true,
+              "uv": true
+            }
+          ]
+        },
+        {
+          "index": 1,
+          "name": "Object_1",
+          "primitives": [
+            {
+              "triangles": 2774,
+              "vertices": 1682,
+              "material": "Body_FRONT_2664",
+              "normals": true,
+              "uv": true
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "name": "Object_2",
+          "primitives": [
+            {
+              "triangles": 44134,
+              "vertices": 22320,
+              "material": "Body_FRONT_2664",
+              "normals": true,
+              "uv": true
+            }
+          ]
+        },
+        {
+          "index": 3,
+          "name": "Object_3",
+          "primitives": [
+            {
+              "triangles": 44134,
+              "vertices": 22320,
+              "material": "Body_FRONT_2664",
+              "normals": true,
+              "uv": true
+            }
+          ]
+        },
+        {
+          "index": 4,
+          "name": "Object_4",
+          "primitives": [
+            {
+              "triangles": 6048,
+              "vertices": 3612,
+              "material": "Body_FRONT_2664",
+              "normals": true,
+              "uv": true
+            }
+          ]
+        },
+        {
+          "index": 5,
+          "name": "Object_5",
+          "primitives": [
+            {
+              "triangles": 48042,
+              "vertices": 24268,
+              "material": "Body_FRONT_2664",
+              "normals": true,
+              "uv": true
+            }
+          ]
+        },
+        {
+          "index": 6,
+          "name": "Object_6",
+          "primitives": [
+            {
+              "triangles": 48042,
+              "vertices": 24268,
+              "material": "Body_FRONT_2664",
+              "normals": true,
+              "uv": true
+            }
+          ]
+        },
+        {
+          "index": 7,
+          "name": "Object_7",
+          "primitives": [
+            {
+              "triangles": 5904,
+              "vertices": 3528,
+              "material": "Body_FRONT_2664",
+              "normals": true,
+              "uv": true
+            }
+          ]
+        },
+        {
+          "index": 8,
+          "name": "Object_8",
+          "primitives": [
+            {
+              "triangles": 18468,
+              "vertices": 9679,
+              "material": "Sleeves_FRONT_2669",
+              "normals": true,
+              "uv": true
+            }
+          ]
+        },
+        {
+          "index": 9,
+          "name": "Object_9",
+          "primitives": [
+            {
+              "triangles": 18380,
+              "vertices": 9635,
+              "material": "Sleeves_FRONT_2669",
+              "normals": true,
+              "uv": true
+            }
+          ]
+        }
+      ],
+      "attribution": "\"T Shirt\" by funlab117 (https://sketchfab.com/3d-models/t-shirt-c1a3e5eb9b5445f4b7d4be82f1127eba), licensed CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)."
+    },
+    {
+      "id": "plaggy-pbr-shirt",
+      "title": "CC0 - Shirt On Hanger",
+      "author": "plaggy",
+      "authorUrl": "https://sketchfab.com/plaggy",
+      "source": "https://sketchfab.com/3d-models/cc0-shirt-on-hanger-846d8f285fcb426498033ae67aee2d10",
+      "license": "CC-BY-4.0",
+      "role": "Primary T-shirt candidate with baked PBR fabric detail and a wooden hanger.",
+      "licenseNote": "Title and description say CC0; the actual Sketchfab download panel says CC Attribution. Retain attribution and follow CC BY 4.0 for this download.",
+      "file": "plaggy-pbr-shirt/source.glb",
+      "downloadedOn": "2026-10-29",
+      "textureVariant": "1K GLB from the official download panel",
+      "bytes": 8178388,
+      "sha256": "104420ee569191283f6105b8fbcb3174e138a23e4c4785558ef9c69cfdc22543",
+      "triangles": 2329,
+      "primitives": 2,
+      "materials": [
+        "Shirt",
+        "Hanger"
+      ],
+      "embeddedImages": 6,
+      "extensionsRequired": [],
+      "animations": 0,
+      "structuralCheck": "GLB 2 header, embedded buffers/images and buffer-view ranges passed; full Khronos validation not run.",
+      "nodes": [
+        {
+          "index": 0,
+          "name": "Sketchfab_model",
+          "children": [
+            1
+          ]
+        },
+        {
+          "index": 1,
+          "name": "89ec3354c496436dbf762b9d9b9f45dc.fbx",
+          "children": [
+            2
+          ]
+        },
+        {
+          "index": 2,
+          "name": "RootNode",
+          "children": [
+            3
+          ]
+        },
+        {
+          "index": 3,
+          "name": "ShirtOnHanger",
+          "children": [
+            4
+          ]
+        },
+        {
+          "index": 4,
+          "name": "Object_4",
+          "children": [
+            5,
+            6
+          ]
+        },
+        {
+          "index": 5,
+          "name": "ShirtOnHanger_Shirt_0",
+          "mesh": 0
+        },
+        {
+          "index": 6,
+          "name": "ShirtOnHanger_Hanger_0",
+          "mesh": 1
+        }
+      ],
+      "meshes": [
+        {
+          "index": 0,
+          "name": "ShirtOnHanger_Shirt_0",
+          "primitives": [
+            {
+              "triangles": 1855,
+              "vertices": 5532,
+              "material": "Shirt",
+              "normals": true,
+              "uv": true
+            }
+          ]
+        },
+        {
+          "index": 1,
+          "name": "ShirtOnHanger_Hanger_0",
+          "primitives": [
+            {
+              "triangles": 474,
+              "vertices": 1160,
+              "material": "Hanger",
+              "normals": true,
+              "uv": true
+            }
+          ]
+        }
+      ],
+      "attribution": "\"CC0 - Shirt On Hanger\" by plaggy (https://sketchfab.com/3d-models/cc0-shirt-on-hanger-846d8f285fcb426498033ae67aee2d10), licensed CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)."
+    },
+    {
+      "id": "dudecon-longsleeve",
+      "title": "Hangers and Long Sleeve Shirt",
+      "author": "dudecon",
+      "authorUrl": "https://sketchfab.com/dudecon",
+      "source": "https://sketchfab.com/3d-models/hangers-and-long-sleeve-shirt-14cc81980a06473a820f811596418fae",
+      "license": "CC-BY-4.0",
+      "role": "Lightweight long-sleeve shirt and five hanger styles. Select the garment and one hanger before rail integration.",
+      "licenseNote": "Author description mentions public domain; downloaded under the panel's explicit CC Attribution licence. Includes a demonstration web-address texture that should be replaced for RACK.",
+      "file": "dudecon-longsleeve/source.glb",
+      "downloadedOn": "2026-10-29",
+      "textureVariant": "1K GLB from the official download panel",
+      "bytes": 438596,
+      "sha256": "41c35bbd5086afcbd734ca1d1e6ba600ce4cd84f8cd68d0f9b38c5079f409415",
+      "triangles": 3676,
+      "primitives": 5,
+      "materials": [
+        "Metal",
+        "Pants.001",
+        "Plastic",
+        "Velvet",
+        "Wood"
+      ],
+      "embeddedImages": 1,
+      "extensionsRequired": [],
+      "animations": 0,
+      "structuralCheck": "GLB 2 header, embedded buffers/images and buffer-view ranges passed; full Khronos validation not run.",
+      "nodes": [
+        {
+          "index": 0,
+          "name": "Sketchfab_model",
+          "children": [
+            1
+          ]
+        },
+        {
+          "index": 1,
+          "name": "Long Shirt Hangers.obj.cleaner.materialmerger.gles",
+          "children": [
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        {
+          "index": 2,
+          "name": "Object_2",
+          "mesh": 0
+        },
+        {
+          "index": 3,
+          "name": "Object_3",
+          "mesh": 1
+        },
+        {
+          "index": 4,
+          "name": "Object_4",
+          "mesh": 2
+        },
+        {
+          "index": 5,
+          "name": "Object_5",
+          "mesh": 3
+        },
+        {
+          "index": 6,
+          "name": "Object_6",
+          "mesh": 4
+        }
+      ],
+      "meshes": [
+        {
+          "index": 0,
+          "name": "Object_0",
+          "primitives": [
+            {
+              "triangles": 1620,
+              "vertices": 990,
+              "material": "Pants.001",
+              "normals": true,
+              "uv": true
+            }
+          ]
+        },
+        {
+          "index": 1,
+          "name": "Object_1",
+          "primitives": [
+            {
+              "triangles": 248,
+              "vertices": 150,
+              "material": "Velvet",
+              "normals": true,
+              "uv": true
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "name": "Object_2",
+          "primitives": [
+            {
+              "triangles": 180,
+              "vertices": 330,
+              "material": "Wood",
+              "normals": true,
+              "uv": true
+            }
+          ]
+        },
+        {
+          "index": 3,
+          "name": "Object_3",
+          "primitives": [
+            {
+              "triangles": 818,
+              "vertices": 530,
+              "material": "Metal",
+              "normals": true,
+              "uv": true
+            }
+          ]
+        },
+        {
+          "index": 4,
+          "name": "Object_4",
+          "primitives": [
+            {
+              "triangles": 810,
+              "vertices": 723,
+              "material": "Plastic",
+              "normals": true,
+              "uv": true
+            }
+          ]
+        }
+      ],
+      "attribution": "\"Hangers and Long Sleeve Shirt\" by dudecon (https://sketchfab.com/3d-models/hangers-and-long-sleeve-shirt-14cc81980a06473a820f811596418fae), licensed CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)."
+    },
+    {
+      "id": "naira-clothes",
+      "title": "Clothes",
+      "author": "Naira",
+      "authorUrl": "https://sketchfab.com/naira001",
+      "source": "https://sketchfab.com/3d-models/clothes-54646263f96a47be9b3d2befe8d0555e",
+      "license": "CC-BY-4.0",
+      "role": "Four-garment collection: patterned hoodie, green graphic tee, leather jacket and hanging check shirt. Separate garment meshes and adjust hanger placement before using as individual products.",
+      "licenseNote": "Download panel explicitly permits commercial use with author attribution.",
+      "file": "naira-clothes/source.glb",
+      "downloadedOn": "2026-10-29",
+      "textureVariant": "1K GLB from the official download panel",
+      "bytes": 18815804,
+      "sha256": "abd59a82b84f67067c01e69fe48b00ee958f1acd1d049d678ef8d9c9c825ec1a",
+      "triangles": 93087,
+      "primitives": 12,
+      "materials": [
+        "buckle1buckle1zipper1",
+        "buckle1coat4",
+        "hood3",
+        "metalHang1",
+        "pocket2blinn1SG",
+        "ties2",
+        "tshirt1",
+        "tshirtonhanger3",
+        "woodd"
+      ],
+      "embeddedImages": 27,
+      "extensionsRequired": [],
+      "animations": 0,
+      "structuralCheck": "GLB 2 header, embedded buffers/images and buffer-view ranges passed; full Khronos validation not run.",
+      "nodes": [
+        {
+          "index": 0,
+          "name": "Sketchfab_model",
+          "children": [
+            1
+          ]
+        },
+        {
+          "index": 1,
+          "name": "clothes.obj.cleaner.materialmerger.gles",
+          "children": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13
+          ]
+        },
+        {
+          "index": 2,
+          "name": "Object_2",
+          "mesh": 0
+        },
+        {
+          "index": 3,
+          "name": "Object_3",
+          "mesh": 1
+        },
+        {
+          "index": 4,
+          "name": "Object_4",
+          "mesh": 2
+        },
+        {
+          "index": 5,
+          "name": "Object_5",
+          "mesh": 3
+        },
+        {
+          "index": 6,
+          "name": "Object_6",
+          "mesh": 4
+        },
+        {
+          "index": 7,
+          "name": "Object_7",
+          "mesh": 5
+        },
+        {
+          "index": 8,
+          "name": "Object_8",
+          "mesh": 6
+        },
+        {
+          "index": 9,
+          "name": "Object_9",
+          "mesh": 7
+        },
+        {
+          "index": 10,
+          "name": "Object_10",
+          "mesh": 8
+        },
+        {
+          "index": 11,
+          "name": "Object_11",
+          "mesh": 9
+        },
+        {
+          "index": 12,
+          "name": "Object_12",
+          "mesh": 10
+        },
+        {
+          "index": 13,
+          "name": "Object_13",
+          "mesh": 11
+        }
+      ],
+      "meshes": [
+        {
+          "index": 0,
+          "name": "Object_0",
+          "primitives": [
+            {
+              "triangles": 25964,
+              "vertices": 14359,
+              "material": "tshirt1",
+              "normals": true,
+              "uv": true
+            }
+          ]
+        },
+        {
+          "index": 1,
+          "name": "Object_1",
+          "primitives": [
+            {
+              "triangles": 84,
+              "vertices": 69,
+              "material": "buckle1buckle1zipper1",
+              "normals": true,
+              "uv": true
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "name": "Object_2",
+          "primitives": [
+            {
+              "triangles": 2336,
+              "vertices": 2130,
+              "material": "buckle1coat4",
+              "normals": true,
+              "uv": true
+            }
+          ]
+        },
+        {
+          "index": 3,
+          "name": "Object_3",
+          "primitives": [
+            {
+              "triangles": 13132,
+              "vertices": 7747,
+              "material": "buckle1coat4",
+              "normals": true,
+              "uv": true
+            }
+          ]
+        },
+        {
+          "index": 4,
+          "name": "Object_4",
+          "primitives": [
+            {
+              "triangles": 13841,
+              "vertices": 7551,
+              "material": "hood3",
+              "normals": true,
+              "uv": true
+            }
+          ]
+        },
+        {
+          "index": 5,
+          "name": "Object_5",
+          "primitives": [
+            {
+              "triangles": 132,
+              "vertices": 91,
+              "material": "ties2",
+              "normals": true,
+              "uv": true
+            }
+          ]
+        },
+        {
+          "index": 6,
+          "name": "Object_6",
+          "primitives": [
+            {
+              "triangles": 3056,
+              "vertices": 2030,
+              "material": "pocket2blinn1SG",
+              "normals": true,
+              "uv": true
+            }
+          ]
+        },
+        {
+          "index": 7,
+          "name": "Object_7",
+          "primitives": [
+            {
+              "triangles": 6328,
+              "vertices": 9991,
+              "material": "metalHang1",
+              "normals": true,
+              "uv": true
+            }
+          ]
+        },
+        {
+          "index": 8,
+          "name": "Object_8",
+          "primitives": [
+            {
+              "triangles": 840,
+              "vertices": 530,
+              "material": "metalHang1",
+              "normals": true,
+              "uv": true
+            }
+          ]
+        },
+        {
+          "index": 9,
+          "name": "Object_9",
+          "primitives": [
+            {
+              "triangles": 13050,
+              "vertices": 6861,
+              "material": "tshirtonhanger3",
+              "normals": true,
+              "uv": true
+            }
+          ]
+        },
+        {
+          "index": 10,
+          "name": "Object_10",
+          "primitives": [
+            {
+              "triangles": 13280,
+              "vertices": 7653,
+              "material": "tshirtonhanger3",
+              "normals": true,
+              "uv": true
+            }
+          ]
+        },
+        {
+          "index": 11,
+          "name": "Object_11",
+          "primitives": [
+            {
+              "triangles": 1044,
+              "vertices": 702,
+              "material": "woodd",
+              "normals": true,
+              "uv": true
+            }
+          ]
+        }
+      ],
+      "attribution": "\"Clothes\" by Naira (https://sketchfab.com/3d-models/clothes-54646263f96a47be9b3d2befe8d0555e), licensed CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)."
+    }
+  ],
+  "fallback": "plaggy-tshirt/plaggy-tshirt.glb",
+  "curated": [
+    {
+      "id": "western-shirt",
+      "source": "https://sketchfab.com/3d-models/cowboy-shirt-a3da546b27a34eb0a95adeb2f5921551",
+      "author": "Style3D CG",
+      "license": "CC-BY-4.0",
+      "metadata": "cowboy-shirt/model-info.json",
+      "publicFile": "models/western-shirt/western-shirt.glb"
+    },
+    {
+      "id": "utility-jacket",
+      "source": "https://sketchfab.com/3d-models/black-jacket-coat-2181e25803164fd690c0debb4d4f391a",
+      "author": "Style3D CG",
+      "license": "CC-BY-4.0",
+      "metadata": "black-coat/model-info.json",
+      "publicFile": "models/utility-jacket/utility-jacket.glb"
+    },
+    {
+      "id": "rose-leather-jacket",
+      "source": "https://sketchfab.com/3d-models/pink-short-leather-jacket-e45bdd7dc2c84be9a0a215150052d23a",
+      "author": "Style3D CG",
+      "license": "CC-BY-4.0",
+      "metadata": "pink-leather/model-info.json",
+      "publicFile": "models/rose-leather-jacket/rose-leather-jacket.glb"
+    },
+    {
+      "id": "khaki-overshirt",
+      "source": "https://sketchfab.com/3d-models/khaki-woven-symmetrical-loose-jacket-491211137ebc4a21b014e1b3cddc455d",
+      "author": "Style3D CG",
+      "license": "CC-BY-4.0",
+      "metadata": "khaki-overshirt/model-info.json",
+      "publicFile": "models/khaki-overshirt/khaki-overshirt.glb"
+    },
+    {
+      "id": "urban-hoodie",
+      "source": "https://sketchfab.com/3d-models/hoodie-ab78848ab3404a2e877929d5f8774c54",
+      "author": "Obridje",
+      "license": "CC-BY-4.0",
+      "metadata": "urban-hoodie/model-info.json",
+      "publicFile": "models/urban-hoodie/urban-hoodie.glb"
+    },
+    {
+      "id": "studio-graphic-tee",
+      "source": "https://sketchfab.com/3d-models/t-shirt-76240162dcd747d4bb4ca3658b463b0a",
+      "author": "Obridje",
+      "license": "CC-BY-4.0",
+      "metadata": "studio-graphic-tee/model-info.json",
+      "publicFile": "models/studio-graphic-tee/studio-graphic-tee.glb"
+    },
+    {
+      "id": "rose-hoodie",
+      "source": "https://sketchfab.com/3d-models/pink-drawstring-hooded-sweatshirt-fd03f442026f4252b2507dda53bba564",
+      "author": "Style3D CG",
+      "license": "CC-BY-4.0",
+      "metadata": "rose-hoodie/model-info.json",
+      "publicFile": "models/rose-hoodie/rose-hoodie.glb"
+    }
+  ]
+}

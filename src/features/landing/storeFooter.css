@@ -1,0 +1,283 @@
+.store-footer {
+  --footer-ink: var(--ink);
+  --footer-muted: var(--muted);
+  --footer-rule: var(--line);
+  background: var(--cream);
+  color: var(--footer-ink);
+  border-top: 1px solid var(--line);
+  padding: 64px max(4.7%, calc((100vw - 1400px) / 2)) 24px;
+}
+
+.footer-main {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(40px, 6vw, 96px);
+  padding-bottom: 44px;
+}
+
+.footer-invitation h2 {
+  font: 500 clamp(52px, 6.5vw, 88px)/1.02 var(--display);
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  margin: 0;
+  text-shadow: 0 3px 6px color-mix(in srgb, var(--ink) 10%, transparent);
+}
+
+.footer-title-mask { display: block; overflow: hidden; padding-bottom: .12em; margin-bottom: -.12em; }
+.footer-title-line { display: block; }
+
+.footer-invitation p {
+  margin: 24px 0 0;
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--footer-muted);
+}
+
+.footer-navigation {
+  display: grid;
+  gap: 14px;
+  justify-self: end;
+  width: min(100%, 420px);
+}
+
+.footer-navigation > :is(a, button) {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  min-height: 64px;
+  padding: 10px 12px 10px 24px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--surface);
+  box-shadow: var(--shadow-raised-light);
+  color: inherit;
+  text-align: left;
+  font: 500 16px/1.5 "DM Sans", "Noto Sans Thai", sans-serif;
+  transition: background-color 160ms ease-out, box-shadow 160ms ease-out;
+}
+
+.footer-link-icon {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--cream);
+  color: var(--accent);
+}
+
+.footer-navigation svg {
+  flex: none;
+  transition: transform 200ms ease-out;
+}
+
+.footer-navigation > :is(a, button):hover {
+  color: var(--accent-hover);
+  background: var(--paper);
+  box-shadow: var(--shadow-button-hover);
+}
+
+.footer-navigation > :is(a, button):hover svg {
+  transform: translate(2px, -2px);
+}
+
+.footer-navigation > :is(a, button):active,
+.back-top:active {
+  box-shadow: var(--shadow-inset-light);
+}
+
+.footer-bottom {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px 32px;
+  padding-top: 24px;
+  border-top: 1px solid var(--footer-rule);
+}
+
+.footer-signoff {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.footer-wordmark {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 1px;
+  min-height: var(--control-size);
+  font: 600 52px/1 var(--display);
+  letter-spacing: -0.03em;
+}
+
+.footer-signoff > span {
+  font-size: 12px;
+  line-height: 1.8;
+  color: var(--footer-muted);
+}
+
+.footer-credits {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: start;
+  gap: 24px;
+  color: var(--footer-muted);
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+.footer-credits-label {
+  display: flex;
+  align-items: center;
+  min-height: var(--control-size);
+}
+
+.footer-credit-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 24px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.footer-credit-list li {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.footer-credit-list a {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--control-size);
+  color: var(--footer-ink);
+  text-decoration: underline;
+  text-decoration-color: var(--line-strong);
+  text-underline-offset: 4px;
+}
+
+.footer-credit-list .footer-license { color: var(--footer-muted); }
+
+.back-top {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  min-height: var(--control-size);
+  padding: 8px 8px 8px 20px;
+  border-radius: 999px;
+  background: var(--surface);
+  box-shadow: var(--shadow-raised-light);
+  font-size: 13px;
+  white-space: nowrap;
+  transition: background-color 160ms ease-out, box-shadow 160ms ease-out;
+}
+
+.back-top .footer-link-icon { width: 36px; height: 36px; }
+.back-top:hover { background: var(--paper); box-shadow: var(--shadow-button-hover); }
+
+.store-footer :is(a, button):focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 5px;
+}
+
+.footer-credit-list a:focus-visible { outline-offset: 2px; }
+.footer-credit-list a:hover {
+  color: var(--footer-ink);
+  text-decoration-color: var(--footer-ink);
+}
+
+@media (max-width: 900px) {
+  .footer-main {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 32px;
+  }
+
+  .footer-navigation {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    width: 100%;
+    gap: 12px;
+  }
+
+  .footer-navigation > :is(a, button) {
+    gap: 10px;
+    padding-inline: 16px 8px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 640px) {
+  .store-footer {
+    padding: 44px 5% 22px;
+  }
+
+  .footer-main {
+    gap: 28px;
+    padding-bottom: 32px;
+  }
+
+  .footer-invitation h2 {
+    font-size: clamp(44px, 12vw, 64px);
+  }
+
+  .footer-invitation p {
+    font-size: 13px;
+    margin-top: 18px;
+  }
+
+  .footer-navigation { grid-template-columns: minmax(0, 1fr); }
+
+  .footer-navigation > :is(a, button) {
+    min-height: 60px;
+    font-size: 15px;
+    padding: 8px 10px 8px 20px;
+  }
+
+  .footer-bottom {
+    gap: 20px 16px;
+    padding-top: 22px;
+  }
+
+  .footer-signoff {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .footer-wordmark {
+    font-size: 46px;
+  }
+
+  .footer-signoff > span {
+    font-size: 11px;
+  }
+
+  .footer-credits { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+  .footer-credits-label { min-height: 24px; }
+  .footer-credit-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 16px; }
+  .back-top { padding-left: 16px; font-size: 12px; }
+}
+
+@media (max-width: 479px) {
+  .footer-credit-list { grid-template-columns: minmax(0, 1fr); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .footer-navigation > :is(a, button),
+  .footer-navigation svg,
+  .back-top {
+    transition: none;
+  }
+
+  .footer-navigation > :is(a, button):hover svg,
+  .footer-navigation > :is(a, button):active,
+  .back-top:active {
+    transform: none;
+  }
+}

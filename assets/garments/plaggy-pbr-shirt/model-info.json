@@ -1,0 +1,102 @@
+{
+  "id": "plaggy-pbr-shirt",
+  "title": "CC0 - Shirt On Hanger",
+  "author": "plaggy",
+  "authorUrl": "https://sketchfab.com/plaggy",
+  "source": "https://sketchfab.com/3d-models/cc0-shirt-on-hanger-846d8f285fcb426498033ae67aee2d10",
+  "license": "CC-BY-4.0",
+  "role": "Primary T-shirt candidate with baked PBR fabric detail and a wooden hanger.",
+  "licenseNote": "Title and description say CC0; the actual Sketchfab download panel says CC Attribution. Retain attribution and follow CC BY 4.0 for this download.",
+  "file": "plaggy-pbr-shirt/source.glb",
+  "downloadedOn": "2026-10-29",
+  "textureVariant": "1K GLB from the official download panel",
+  "bytes": 8178388,
+  "sha256": "104420ee569191283f6105b8fbcb3174e138a23e4c4785558ef9c69cfdc22543",
+  "triangles": 2329,
+  "primitives": 2,
+  "materials": [
+    "Shirt",
+    "Hanger"
+  ],
+  "embeddedImages": 6,
+  "extensionsRequired": [],
+  "animations": 0,
+  "structuralCheck": "GLB 2 header, embedded buffers/images and buffer-view ranges passed; full Khronos validation not run.",
+  "nodes": [
+    {
+      "index": 0,
+      "name": "Sketchfab_model",
+      "children": [
+        1
+      ]
+    },
+    {
+      "index": 1,
+      "name": "89ec3354c496436dbf762b9d9b9f45dc.fbx",
+      "children": [
+        2
+      ]
+    },
+    {
+      "index": 2,
+      "name": "RootNode",
+      "children": [
+        3
+      ]
+    },
+    {
+      "index": 3,
+      "name": "ShirtOnHanger",
+      "children": [
+        4
+      ]
+    },
+    {
+      "index": 4,
+      "name": "Object_4",
+      "children": [
+        5,
+        6
+      ]
+    },
+    {
+      "index": 5,
+      "name": "ShirtOnHanger_Shirt_0",
+      "mesh": 0
+    },
+    {
+      "index": 6,
+      "name": "ShirtOnHanger_Hanger_0",
+      "mesh": 1
+    }
+  ],
+  "meshes": [
+    {
+      "index": 0,
+      "name": "ShirtOnHanger_Shirt_0",
+      "primitives": [
+        {
+          "triangles": 1855,
+          "vertices": 5532,
+          "material": "Shirt",
+          "normals": true,
+          "uv": true
+        }
+      ]
+    },
+    {
+      "index": 1,
+      "name": "ShirtOnHanger_Hanger_0",
+      "primitives": [
+        {
+          "triangles": 474,
+          "vertices": 1160,
+          "material": "Hanger",
+          "normals": true,
+          "uv": true
+        }
+      ]
+    }
+  ],
+  "attribution": "\"CC0 - Shirt On Hanger\" by plaggy (https://sketchfab.com/3d-models/cc0-shirt-on-hanger-846d8f285fcb426498033ae67aee2d10), licensed CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)."
+}

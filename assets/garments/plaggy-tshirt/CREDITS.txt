@@ -1,0 +1,6 @@
+T-Shirt and Hanger by plaggy
+Source: https://opengameart.org/content/t-shirt-and-hanger
+Licence: CC0 1.0 Universal — https://creativecommons.org/publicdomain/zero/1.0/
+
+Changes: Converted the downloaded OBJ to GLB, retaining the original atlas; adjusted UV orientation for glTF, assigned cotton/wood/metal materials, merged draw groups, and normalized the total height to 1 metre.
+Original archive and extracted source files are retained alongside the converted file.

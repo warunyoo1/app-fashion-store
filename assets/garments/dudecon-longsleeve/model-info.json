@@ -1,0 +1,141 @@
+{
+  "id": "dudecon-longsleeve",
+  "title": "Hangers and Long Sleeve Shirt",
+  "author": "dudecon",
+  "authorUrl": "https://sketchfab.com/dudecon",
+  "source": "https://sketchfab.com/3d-models/hangers-and-long-sleeve-shirt-14cc81980a06473a820f811596418fae",
+  "license": "CC-BY-4.0",
+  "role": "Lightweight long-sleeve shirt and five hanger styles. Select the garment and one hanger before rail integration.",
+  "licenseNote": "Author description mentions public domain; downloaded under the panel's explicit CC Attribution licence. Includes a demonstration web-address texture that should be replaced for RACK.",
+  "file": "dudecon-longsleeve/source.glb",
+  "downloadedOn": "2026-10-29",
+  "textureVariant": "1K GLB from the official download panel",
+  "bytes": 438596,
+  "sha256": "41c35bbd5086afcbd734ca1d1e6ba600ce4cd84f8cd68d0f9b38c5079f409415",
+  "triangles": 3676,
+  "primitives": 5,
+  "materials": [
+    "Metal",
+    "Pants.001",
+    "Plastic",
+    "Velvet",
+    "Wood"
+  ],
+  "embeddedImages": 1,
+  "extensionsRequired": [],
+  "animations": 0,
+  "structuralCheck": "GLB 2 header, embedded buffers/images and buffer-view ranges passed; full Khronos validation not run.",
+  "nodes": [
+    {
+      "index": 0,
+      "name": "Sketchfab_model",
+      "children": [
+        1
+      ]
+    },
+    {
+      "index": 1,
+      "name": "Long Shirt Hangers.obj.cleaner.materialmerger.gles",
+      "children": [
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "index": 2,
+      "name": "Object_2",
+      "mesh": 0
+    },
+    {
+      "index": 3,
+      "name": "Object_3",
+      "mesh": 1
+    },
+    {
+      "index": 4,
+      "name": "Object_4",
+      "mesh": 2
+    },
+    {
+      "index": 5,
+      "name": "Object_5",
+      "mesh": 3
+    },
+    {
+      "index": 6,
+      "name": "Object_6",
+      "mesh": 4
+    }
+  ],
+  "meshes": [
+    {
+      "index": 0,
+      "name": "Object_0",
+      "primitives": [
+        {
+          "triangles": 1620,
+          "vertices": 990,
+          "material": "Pants.001",
+          "normals": true,
+          "uv": true
+        }
+      ]
+    },
+    {
+      "index": 1,
+      "name": "Object_1",
+      "primitives": [
+        {
+          "triangles": 248,
+          "vertices": 150,
+          "material": "Velvet",
+          "normals": true,
+          "uv": true
+        }
+      ]
+    },
+    {
+      "index": 2,
+      "name": "Object_2",
+      "primitives": [
+        {
+          "triangles": 180,
+          "vertices": 330,
+          "material": "Wood",
+          "normals": true,
+          "uv": true
+        }
+      ]
+    },
+    {
+      "index": 3,
+      "name": "Object_3",
+      "primitives": [
+        {
+          "triangles": 818,
+          "vertices": 530,
+          "material": "Metal",
+          "normals": true,
+          "uv": true
+        }
+      ]
+    },
+    {
+      "index": 4,
+      "name": "Object_4",
+      "primitives": [
+        {
+          "triangles": 810,
+          "vertices": 723,
+          "material": "Plastic",
+          "normals": true,
+          "uv": true
+        }
+      ]
+    }
+  ],
+  "attribution": "\"Hangers and Long Sleeve Shirt\" by dudecon (https://sketchfab.com/3d-models/hangers-and-long-sleeve-shirt-14cc81980a06473a820f811596418fae), licensed CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)."
+}

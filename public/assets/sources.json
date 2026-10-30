@@ -1,0 +1,128 @@
+{
+  "purpose": "Local demonstration assets for app-fashion-store. Editorial photos do not depict the RACK sample catalogue.",
+  "assets": [
+    {
+      "file": "models/relaxed-tee/relaxed-tee.glb",
+      "title": "T Shirt",
+      "author": "funlab117",
+      "source": "https://sketchfab.com/3d-models/t-shirt-c1a3e5eb9b5445f4b7d4be82f1127eba",
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "usage": "Active Relaxed Tee throughout rail, collection, close view, bag and favourites. Source reduced from 237938 to 29116 triangles with locked boundaries and normal/UV weighting; matching cotton surfaces merged; presentation rotation removed; fitted to the rail. Cotton roughness/sheen and Chalk/Ink tints added. chalk.png and ink.png are renders of the assembled product."
+    },
+    {
+      "file": "models/shared-hanger/wooden-hanger.glb",
+      "title": "Wooden hanger from CC0 - Shirt On Hanger",
+      "author": "plaggy",
+      "source": "https://sketchfab.com/3d-models/cc0-shirt-on-hanger-846d8f285fcb426498033ae67aee2d10",
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "usage": "Shared wooden hanger for all twelve products. Extracted separately so the archived CHEESE shirt geometry and textures do not load. Original shape, UVs and three PBR images retained; fitted per collar at runtime."
+    },
+    {
+      "files": [
+        "models/cassette-hoodie/cassette-hoodie.glb",
+        "models/graphic-tee/graphic-tee.glb",
+        "models/leather-jacket/leather-jacket.glb",
+        "models/check-shirt/check-shirt.glb"
+      ],
+      "title": "Clothes",
+      "author": "Naira",
+      "source": "https://sketchfab.com/3d-models/clothes-54646263f96a47be9b3d2befe8d0555e",
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "usage": "Four actual sculpted garments used throughout the rail, style collections, close view and menus. Extracted from one source collection, uniformly scaled and fitted to the rail. Original geometry, UVs and all 27 PBR images retained across the four exports. Displayed original hanger meshes are hidden and all four garments use the shared wooden hanger by plaggy. The archived GLBs preserve the original geometry and maps. original.png files are renders of each same GLB."
+    },
+    {
+      "file": "models/studio-tee/studio-tee.glb",
+      "title": "CC0 - Shirt On Hanger",
+      "author": "plaggy",
+      "source": "https://sketchfab.com/3d-models/cc0-shirt-on-hanger-846d8f285fcb426498033ae67aee2d10",
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "usage": "Archived original Studio Tee/CHEESE sample; no longer displayed or requested by the active catalogue. The wooden hanger has been extracted as a separate GLB."
+    },
+    {
+      "file": "photos/hero-editorial.jpg",
+      "source": "https://images.unsplash.com/photo-1516257984-b1b4d707412e",
+      "license": "https://unsplash.com/license",
+      "usage": "Archived reference; not displayed by the current imported-model catalogue. Archived editorial reference; not used by the current rack hero"
+    },
+    {
+      "file": "photos/lookbook.jpg",
+      "source": "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f",
+      "license": "https://unsplash.com/license",
+      "usage": "Archived reference; not displayed by the current imported-model catalogue. Style inspiration"
+    },
+    {
+      "file": "photos/cotton-tee.jpg",
+      "source": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab",
+      "license": "https://unsplash.com/license",
+      "usage": "Archived reference; not displayed by the current imported-model catalogue. Style inspiration"
+    },
+    {
+      "file": "photos/blue-check-front.webp",
+      "source": "https://cdn.dummyjson.com/product-images/mens-shirts/blue-&-black-check-shirt/1.webp",
+      "catalogue": "https://dummyjson.com/products/category/mens-shirts",
+      "usage": "Archived reference; not displayed by the current imported-model catalogue. Sample product front photograph; prices and stock are not imported"
+    },
+    {
+      "file": "photos/blue-check-back.webp",
+      "source": "https://cdn.dummyjson.com/product-images/mens-shirts/blue-&-black-check-shirt/3.webp",
+      "catalogue": "https://dummyjson.com/products/category/mens-shirts",
+      "usage": "Archived reference; not displayed by the current imported-model catalogue. Source back artwork projected onto an authored draped volume, not a manufacturer scan"
+    },
+    {
+      "file": "models/western-shirt/western-shirt.glb",
+      "title": "Cowboy Shirt",
+      "author": "Style3D CG",
+      "source": "https://sketchfab.com/3d-models/cowboy-shirt-a3da546b27a34eb0a95adeb2f5921551",
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "usage": "Active curated garment on the scrollable rail, collection, detail and menu previews. Source transforms baked; mesh reduced with locked borders and normal/UV weighting; matching surfaces merged. Original embedded 1K PBR images retained. Shared wooden hanger fitted per collar. Rose Leather Jacket has a demonstration rose material tint. original.jpg is rendered from the same assembled model."
+    },
+    {
+      "file": "models/utility-jacket/utility-jacket.glb",
+      "title": "Black jacket coat",
+      "author": "Style3D CG",
+      "source": "https://sketchfab.com/3d-models/black-jacket-coat-2181e25803164fd690c0debb4d4f391a",
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "usage": "Active curated garment on the scrollable rail, collection, detail and menu previews. Source transforms baked; mesh reduced with locked borders and normal/UV weighting; matching surfaces merged. Original embedded 1K PBR images retained. Shared wooden hanger fitted per collar. Rose Leather Jacket has a demonstration rose material tint. original.jpg is rendered from the same assembled model."
+    },
+    {
+      "file": "models/rose-leather-jacket/rose-leather-jacket.glb",
+      "title": "Pink Short Leather Jacket",
+      "author": "Style3D CG",
+      "source": "https://sketchfab.com/3d-models/pink-short-leather-jacket-e45bdd7dc2c84be9a0a215150052d23a",
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "usage": "Active curated garment on the scrollable rail, collection, detail and menu previews. Source transforms baked; mesh reduced with locked borders and normal/UV weighting; matching surfaces merged. Original embedded 1K PBR images retained. Shared wooden hanger fitted per collar. Rose Leather Jacket has a demonstration rose material tint. original.jpg is rendered from the same assembled model."
+    },
+    {
+      "file": "models/khaki-overshirt/khaki-overshirt.glb",
+      "title": "Khaki woven symmetrical loose jacket",
+      "author": "Style3D CG",
+      "source": "https://sketchfab.com/3d-models/khaki-woven-symmetrical-loose-jacket-491211137ebc4a21b014e1b3cddc455d",
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "usage": "Active curated garment on the scrollable rail, collection, detail and menu previews. Source transforms baked; mesh reduced with locked borders and normal/UV weighting; matching surfaces merged. Original embedded 1K PBR images retained. Shared wooden hanger fitted per collar. Rose Leather Jacket has a demonstration rose material tint. original.jpg is rendered from the same assembled model."
+    },
+    {
+      "file": "models/urban-hoodie/urban-hoodie.glb",
+      "title": "HOODIE",
+      "author": "Obridje",
+      "source": "https://sketchfab.com/3d-models/hoodie-ab78848ab3404a2e877929d5f8774c54",
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "usage": "Active curated garment on the scrollable rail, collection, detail and menu previews. Source transforms baked; mesh reduced with locked borders and normal/UV weighting; matching surfaces merged. Original embedded 1K PBR images retained. Shared wooden hanger fitted per collar. Rose Leather Jacket has a demonstration rose material tint. original.jpg is rendered from the same assembled model."
+    },
+    {
+      "file": "models/studio-graphic-tee/studio-graphic-tee.glb",
+      "title": "T-SHIRT",
+      "author": "Obridje",
+      "source": "https://sketchfab.com/3d-models/t-shirt-76240162dcd747d4bb4ca3658b463b0a",
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "usage": "Active curated garment on the scrollable rail, collection, detail and menu previews. Source transforms baked; mesh reduced with locked borders and normal/UV weighting; matching surfaces merged. Original embedded 1K PBR images retained. Shared wooden hanger fitted per collar. Rose Leather Jacket has a demonstration rose material tint. original.jpg is rendered from the same assembled model."
+    },
+    {
+      "file": "models/rose-hoodie/rose-hoodie.glb",
+      "title": "Pink Drawstring Hooded Sweatshirt",
+      "author": "Style3D CG",
+      "source": "https://sketchfab.com/3d-models/pink-drawstring-hooded-sweatshirt-fd03f442026f4252b2507dda53bba564",
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "usage": "Active curated garment on the scrollable rail, collection, detail and menu previews. Source transforms baked; mesh reduced with locked borders and normal/UV weighting; matching surfaces merged. Original embedded 1K PBR images retained. Shared wooden hanger fitted per collar. Rose Leather Jacket has a demonstration rose material tint. original.jpg is rendered from the same assembled model."
+    }
+  ]
+}

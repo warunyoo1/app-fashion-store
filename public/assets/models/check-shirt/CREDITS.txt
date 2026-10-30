@@ -1,0 +1,4 @@
+Clothes by Naira
+https://sketchfab.com/3d-models/clothes-54646263f96a47be9b3d2befe8d0555e
+CC BY 4.0: https://creativecommons.org/licenses/by/4.0/
+Adapted for RACK: extracted garment and relevant hardware, removed unused data, uniformly scaled and repositioned for the rail. Original sculpted geometry, UVs and PBR textures retained. Original source.glb is archived in assets/garments/naira-clothes. Separate procedural hangers support garments without their own hanger. Prices and product names are illustrative.

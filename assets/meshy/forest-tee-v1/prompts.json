@@ -1,0 +1,23 @@
+{
+  "asset": "forest-tee-v1",
+  "createdOn": "2026-10-29",
+  "generationMode": "built-in image_gen",
+  "purpose": "Original reference images for a Meshy image-to-3D test; not a real product photograph or 3D asset.",
+  "images": [
+    {
+      "file": "forest-tee-front.png",
+      "view": "front",
+      "intent": "generate",
+      "transparentBackground": false,
+      "prompt": "Use case: product-mockup. Create ONE photorealistic studio reference image for reconstructing a single garment in Meshy image-to-3D, not a collage or a sheet. Subject: a premium unisex short-sleeved crew-neck T-shirt for a modern forest-green fashion label, deep forest green matte medium-heavy cotton jersey body (#294332) with a narrow warm ivory rib-knit crew-neck collar. Plain garment, absolutely no text, logo, label, stripe, print or graphics. Front view, camera straight-on at garment center, near orthographic product photography, entire garment and sleeve edges fully visible, centered with about 12 percent empty margin on every side on a seamless very light neutral grey background. The shirt has convincing hollow 3D volume, shoulder seams, subtle fine cotton weave, neat double-stitched cuffs and hem, natural gravity folds, softly relaxed open short sleeves angled slightly away from torso and a clearly open neckline with visible interior depth. The body hangs vertically in a relaxed apparel catalogue pose as if invisibly suspended, gentle natural drape, not worn by a person and not flattened on a table. Broad soft neutral studio illumination from upper-left, clean readable silhouette, no dramatic shadow, no shiny or plastic surface, no extra objects. Exclude person, skin, mannequin, torso, hands, hanger, hook, rail, pins, floor, stand, packaging, props, watermark, lettering, duplicated garment, back-view inset, panels, multi-view sheet. Output one square high-resolution detailed realistic front-view image suitable as a single-object 3D reconstruction reference."
+    },
+    {
+      "file": "forest-tee-back.png",
+      "view": "back",
+      "intent": "edit",
+      "reference": "forest-tee-front.png",
+      "transparentBackground": false,
+      "prompt": "Use case: product-mockup. The input is the FRONT-view reference of a single original forest-green T-shirt. Create ONE matching BACK-view reference photograph of exactly the same garment for multi-view 3D reconstruction. Preserve the exact same cut, proportions, width, sleeve length, hem length, deep forest green matte medium-heavy cotton body, narrow warm ivory ribbed collar, seam details and subtle realistic fabric weave. Change viewpoint only to a perfectly straight-on REAR view, near orthographic. Show the BACK of the shirt, with its high back-neckline and narrow ivory collar visible along top; do not reproduce the low front collar opening, do not show chest/front. Rear fabric is entirely plain green, no logo, label or text. Garment is invisibly suspended with convincing hollow volume and subtle gravity folds, sleeves relaxed at same angle as input. Same centered full-garment square composition, margins, seamless light neutral grey background and broad soft studio illumination. No person, mannequin, hanger, hook, hands, stand, props, shadow on floor, text, watermark or additional views. Return one image of only the rear of this same shirt, not a collage or turnaround sheet."
+    }
+  ]
+}

@@ -1,0 +1,284 @@
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 96px;
+  scrollbar-gutter: stable;
+  scrollbar-color: var(--scroll-thumb) var(--paper);
+  scrollbar-width: thin;
+}
+body {
+  min-width: 0;
+}
+body:has(.dialog[open]) {
+  overflow: hidden;
+}
+.bag-photo {
+  width: 44px;
+  height: 54px;
+  object-fit: contain;
+  flex: none;
+  background: var(--cream);
+  border-radius: 5px;
+}
+.mini-garment > img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+.storefront {
+  height: auto;
+  min-height: 100svh;
+}
+.rack-section {
+  width: min(90.6%, 1280px);
+  margin-inline: auto;
+}
+.photo-teaser-image {
+  width: 70px;
+  height: 86px;
+  display: block;
+  background: var(--cream);
+}
+.photo-teaser-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.brand-ribbon {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 30px;
+  overflow: hidden;
+  background: var(--cream);
+  padding: 15px 4.7%;
+  color: var(--ink);
+  white-space: nowrap;
+  font: 500 19px/1 var(--display);
+  letter-spacing: 0.015em;
+}
+.brand-ribbon svg {
+  width: 23px;
+  height: 23px;
+  flex: none;
+}
+.rack-section {
+  padding-top: 80px;
+  padding-bottom: 35px;
+  scroll-margin-top: 0;
+}
+.rack-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 25px;
+  margin-bottom: 20px;
+}
+.rack-heading h2 {
+  font: 500 clamp(40px, 4.7vw, 66px)/1.03 var(--display);
+  letter-spacing: -0.035em;
+  margin: 0 0 14px;
+}
+.rack-heading p {
+  font-size: 12px;
+  color: var(--muted);
+  margin: 0;
+  line-height: 1.8;
+}
+.rack-meta {
+  display: grid;
+  justify-items: end;
+  gap: 8px;
+  font-size: 11px;
+}
+.rack-meta > span:nth-child(2) {
+  font-size: 9px;
+  color: var(--muted);
+}
+.text-link {
+  border: 0;
+  background: none;
+  padding: 8px 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 12px;
+  color: var(--accent);
+  min-height: var(--control-size);
+  width: max-content;
+}
+.text-link:hover {
+  color: var(--accent-hover);
+}
+.rack-section .showroom {
+  height: 600px;
+  min-height: 560px;
+  flex: none;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  background: var(--paper);
+}
+.rack-section .scene-loading {
+  background: var(--paper);
+}
+.rack-section .back-to-rack {
+  top: 17px;
+  left: 20px;
+  background: var(--paper);
+}
+.rack-section .product-detail {
+  bottom: 18px;
+  gap: 7px;
+}
+.rack-section .product-detail h2 {
+  font-size: 15px;
+}
+.product-media-note {
+  font-size: 9px;
+  color: var(--muted);
+}
+.rack-section .product-detail > p {
+  font-size: 12px;
+  color: var(--muted);
+}
+.rack-section .pill-button,
+.rack-section .round-arrow {
+  min-height: var(--control-size);
+}
+.rack-section .round-arrow {
+  min-width: var(--control-size);
+}
+.rack-section .size-selection > button {
+  min-height: var(--control-size);
+  min-width: var(--control-size);
+}
+.rack-section .detail-tools .icon-button {
+  height: var(--control-size);
+  width: var(--control-size);
+}
+.toast {
+  top: 95px;
+}
+@media (max-width: 600px) {
+  html {
+    scroll-padding-top: 74px;
+  }
+  .rack-section {
+    width: 90%;
+  }
+  .desktop-only {
+    display: none;
+  }
+  .photo-teaser-image {
+    width: 62px;
+    height: 75px;
+  }
+  .brand-ribbon {
+    gap: 24px;
+    justify-content: flex-start;
+    padding: 14px 5%;
+    font-size: 16px;
+  }
+  .brand-ribbon svg {
+    width: 18px;
+    height: 18px;
+  }
+  .rack-section {
+    padding-top: 49px;
+    padding-bottom: 15px;
+    scroll-margin-top: 0;
+  }
+  .rack-heading {
+    gap: 12px;
+    align-items: flex-end;
+    margin-bottom: 18px;
+  }
+  .rack-heading h2 {
+    font-size: 38px;
+    margin-bottom: 11px;
+  }
+  .rack-heading p {
+    font-size: 10px;
+    max-width: 190px;
+  }
+  .rack-meta {
+    font-size: 9px;
+    gap: 6px;
+    max-width: 130px;
+    padding-bottom: 2px;
+  }
+  .rack-meta > span:nth-child(2) {
+    font-size: 8px;
+    text-align: right;
+  }
+  .rack-meta .text-link {
+    font-size: 8px;
+    gap: 4px;
+    min-height: 30px;
+  }
+  .rack-meta .text-link svg {
+    width: 12px;
+  }
+  .rack-section .showroom {
+    height: 590px;
+    min-height: 590px;
+    width: calc(100% + 11.12%);
+    margin-left: -5.56%;
+  }
+  .rack-section .back-to-rack {
+    top: 13px;
+    left: 16px;
+    font-size: 12px;
+    min-height: var(--control-size);
+  }
+  .rack-section .product-detail {
+    bottom: 18px;
+  }
+  .rack-section .product-detail h2 {
+    font-size: 14px;
+  }
+  .rack-section .product-detail > p {
+    font-size: 11px;
+  }
+  .product-media-note {
+    font-size: 8px;
+  }
+  .rack-section .detail-actions {
+    gap: 8px;
+  }
+  .rack-section .size-selection > button {
+    min-width: var(--control-size);
+    min-height: var(--control-size);
+  }
+  .rack-section .detail-actions .pill-button {
+    min-height: var(--control-size);
+  }
+  .rack-section .detail-tools .icon-button,
+  .rack-section .detail-tools .round-arrow {
+    width: var(--control-size);
+    height: var(--control-size);
+    min-width: var(--control-size);
+  }
+  .rack-section .mini-garment {
+    width: var(--control-size);
+    height: 48px;
+  }
+  .toast {
+    top: 80px;
+    font-size: 10px;
+    padding: 12px 15px;
+  }
+}
+@media (max-width: 360px) {
+  .rack-heading h2 {
+    font-size: 33px;
+  }
+  .rack-meta {
+    max-width: 115px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}

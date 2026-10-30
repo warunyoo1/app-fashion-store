@@ -1,0 +1,31 @@
+.rack-experience, .rack-viewport { position: absolute; inset: 0; }
+.rack-viewport { touch-action: pan-y; }
+.rack-viewport[data-panning="true"] canvas { cursor: grabbing !important; }
+.rack-scroll-control {
+  position: absolute;
+  z-index: 3;
+  top: calc(var(--rail-y) + var(--unit) * 2.95 + 96px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(320px, calc(100% - 48px));
+  color: var(--muted);
+  display: grid;
+  justify-items: center;
+  gap: 1px;
+}
+.rack-scroll-control label { font-size: 11px; display: flex; align-items: center; gap: 7px; cursor: ew-resize; }
+.rack-scroll-control input {
+  appearance: none; width: 100%; height: 44px; margin: 0; background: transparent; cursor: ew-resize;
+  border-radius: 8px; accent-color: var(--accent);
+}
+.rack-scroll-control input::-webkit-slider-runnable-track { height: 4px; background: var(--line); border-radius: 4px; }
+.rack-scroll-control input::-webkit-slider-thumb {
+  appearance: none; width: 48px; height: 12px; margin-top: -4px; border-radius: 8px;
+  background: var(--accent); box-shadow: var(--shadow-control);
+}
+.rack-scroll-control input::-moz-range-track { height: 4px; background: var(--line); border-radius: 4px; }
+.rack-scroll-control input::-moz-range-thumb { width: 48px; height: 12px; border: 0; border-radius: 8px; background: var(--accent); }
+.rack-scroll-control input:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+.rack-more-loading { position: absolute; top: 49px; font-size: 11px; color: var(--muted); pointer-events: none; }
+.rack-focus-loading { position: absolute; top: 45%; left: 50%; transform: translateX(-50%); color: var(--muted); background: var(--paper); padding: 10px 16px; border-radius: 999px; font-size: 11px; pointer-events: none; box-shadow: var(--shadow-raised-light); }
+@media (max-width: 600px) { .rack-scroll-control { top: calc(var(--rail-y) + var(--unit) * 2.95 + 91px); } }

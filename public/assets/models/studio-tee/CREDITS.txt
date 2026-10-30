@@ -1,0 +1,4 @@
+"CC0 - Shirt On Hanger" by plaggy, CC BY 4.0. Source: https://sketchfab.com/3d-models/cc0-shirt-on-hanger-846d8f285fcb426498033ae67aee2d10. Adapted: fitted to the RACK rail; geometry and original textures retained.
+Licence: https://creativecommons.org/licenses/by/4.0/
+The asset title says CC0, but the Sketchfab download panel lists CC BY 4.0; this project retains attribution under CC BY 4.0.
+The Chalk and Ink colour options tint the original cloth material in the browser. The original design remains a demonstration, not a real RACK product.

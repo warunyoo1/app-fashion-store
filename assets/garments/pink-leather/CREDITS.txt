@@ -1,0 +1,4 @@
+Pink Short Leather Jacket by Style3D CG
+https://sketchfab.com/3d-models/pink-short-leather-jacket-e45bdd7dc2c84be9a0a215150052d23a
+CC BY 4.0: https://creativecommons.org/licenses/by/4.0/
+Adapted for RACK: world transforms baked, geometry simplified with locked borders and normal/UV weighting, matching-material surfaces merged, uniformly fitted to the clothing rail. Original PBR texture images retained. Shared wooden hanger by plaggy is added separately. Product names, sizes and prices are demonstration data.

@@ -1,0 +1,4 @@
+Wooden hanger from CC0 - Shirt On Hanger by plaggy
+https://sketchfab.com/3d-models/cc0-shirt-on-hanger-846d8f285fcb426498033ae67aee2d10
+CC BY 4.0: https://creativecommons.org/licenses/by/4.0/
+Extracted the hanger only from the archived rail-fit model, retaining its original shape, UVs and PBR maps. Fitted per collar at runtime with a fixed hook anchor.

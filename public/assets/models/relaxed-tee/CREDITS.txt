@@ -1,0 +1,4 @@
+T Shirt by funlab117
+https://sketchfab.com/3d-models/t-shirt-c1a3e5eb9b5445f4b7d4be82f1127eba
+CC BY 4.0: https://creativecommons.org/licenses/by/4.0/
+Adapted for RACK: simplified mesh with locked boundaries, merged matching surfaces, removed presentation rotation, uniformly scaled and repositioned. Original sculpted folds retained. Cotton roughness/sheen and Chalk/Ink demonstration tints added. The shared wooden hanger is by plaggy (separate credit). Product names, sizes and prices are illustrative.
