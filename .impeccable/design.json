@@ -1,0 +1,147 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-02",
+  "title": "Design System: RACK Modern Wardrobe",
+  "extensions": {
+    "colorMeta": {
+      "accent": {
+        "role": "primary",
+        "displayName": "Muted olive",
+        "tonalRamp": [
+          "#1b2518",
+          "#2c3a25",
+          "#405037",
+          "#56634f",
+          "#76836d",
+          "#a1ac98",
+          "#c8d0c2",
+          "#edf0e8"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Studio white"
+      },
+      "cream": {
+        "role": "neutral",
+        "displayName": "Warm chalk"
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Contemporary display",
+        "purpose": "Mixed-case fashion headings. Oswald remains reserved for the wordmark."
+      },
+      "body": {
+        "displayName": "Product and UI",
+        "purpose": "Readable English/Thai UI and product information."
+      }
+    },
+    "shadows": [
+      {
+        "name": "raised-light",
+        "value": "0 4px 14px -7px #252c2326",
+        "purpose": "Restrained depth beneath light capsule controls."
+      },
+      {
+        "name": "panel",
+        "value": "0 18px 50px -14px #252c232e",
+        "purpose": "Popup and dialog elevation."
+      }
+    ],
+    "motion": [
+      {
+        "name": "nav",
+        "value": "280ms cubic-bezier(.22, 1, .36, 1)",
+        "purpose": "Shared navigation selection."
+      },
+      {
+        "name": "collection-marker",
+        "value": "320ms power3.out",
+        "purpose": "Interrupted tab selection continues from its displayed position."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "columns",
+        "value": "900px"
+      },
+      {
+        "name": "navigation",
+        "value": "740px"
+      },
+      {
+        "name": "phone",
+        "value": "600px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary action",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "A quiet dark action alongside the 3D garment.",
+      "html": "<button class=\"ds-primary\">ดูไซซ์และรายละเอียด</button>",
+      "css": ".ds-primary{min-height:48px;padding:12px 18px;border:0;border-radius:12px;background:var(--ink,#292d2a);color:var(--on-accent,#fffdf8);font:500 14px/1.5 'DM Sans','Noto Sans Thai',sans-serif;cursor:pointer;box-shadow:0 4px 10px -6px #252c2330}.ds-primary:hover{background:var(--accent-hover,#384331)}.ds-primary:focus-visible{outline:2px solid var(--focus,#4f6948);outline-offset:3px}.ds-primary:active{box-shadow:inset 0 1px 3px #10150f4d}"
+    },
+    {
+      "name": "Capsule navigation",
+      "kind": "nav",
+      "refersTo": "nav",
+      "description": "The existing RACK capsule with a lighter matte treatment.",
+      "html": "<nav class=\"ds-nav\"><button aria-current=\"location\">คอลเลกชัน</button><button>The edit</button><button>A closer look</button></nav>",
+      "css": ".ds-nav{display:flex;gap:0;padding:5px;border-radius:999px;background:var(--cream,#f0efe9)}.ds-nav button{flex:1;min-height:44px;padding:10px 16px;border:0;border-radius:999px;background:transparent;color:var(--muted,#62685f);font:400 13px/1.4 'DM Sans','Noto Sans Thai',sans-serif;cursor:pointer}.ds-nav [aria-current]{background:var(--surface,#fff);color:var(--ink,#292d2a);box-shadow:0 1px 4px #292d2a0d}.ds-nav button:hover{color:var(--ink,#292d2a)}.ds-nav button:focus-visible{outline:2px solid var(--focus,#4f6948);outline-offset:-4px}"
+    },
+    {
+      "name": "Garment picker",
+      "kind": "custom",
+      "refersTo": "picker",
+      "description": "A bordered selection surface; actual product renders appear in the live control.",
+      "html": "<button class=\"ds-picker\"><span><strong>Tie-detail Shirt</strong><small>Shirts &amp; layers</small></span><span class=\"ds-disclosure\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"m6 9 6 6 6-6\"/></svg></span></button>",
+      "css": ".ds-picker{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:80px;width:100%;padding:12px 16px;border:1px solid var(--line,#dcded5);border-radius:16px;background:var(--surface,#fff);color:var(--ink,#292d2a);text-align:left;cursor:pointer;font-family:'DM Sans',sans-serif}.ds-picker span{display:grid;gap:5px}.ds-picker strong{font-size:14px;font-weight:600}.ds-picker small{font-size:11px;color:var(--muted,#62685f)}.ds-picker:hover{background:var(--paper,#fafaf7)}.ds-picker:focus-visible{outline:2px solid var(--focus,#4f6948);outline-offset:3px}.ds-picker:active{background:var(--cream,#f0efe9)}.ds-picker .ds-disclosure{display:grid;place-items:center;flex:none;width:32px;height:32px;gap:0;border-radius:50%;background:var(--cream,#f0efe9)}"
+    },
+    {
+      "name": "Color selection",
+      "kind": "input",
+      "description": "Native radios with an independent visible selected/focus state.",
+      "html": "<fieldset class=\"ds-colors\"><legend>สี</legend><label><input type=\"radio\" name=\"ds-color\" checked><span class=\"ds-stone\"></span>Stone</label><label><input type=\"radio\" name=\"ds-color\"><span class=\"ds-ink\"></span>Ink</label></fieldset>",
+      "css": ".ds-colors{border:0;display:flex;gap:16px;padding:8px 0;color:var(--ink,#292d2a);font:13px 'DM Sans',sans-serif}.ds-colors label{position:relative;display:grid;justify-items:center;gap:8px;min-width:44px;cursor:pointer}.ds-colors input{position:absolute;opacity:0}.ds-colors span{display:block;width:36px;height:36px;border-radius:50%;outline:1px solid var(--line,#dcded5);outline-offset:3px}.ds-stone{background:#aaa99e}.ds-ink{background:#393d3c}.ds-colors input:checked+span{outline:2px solid var(--ink,#292d2a)}.ds-colors input:focus-visible+span{outline:3px solid var(--focus,#4f6948);outline-offset:5px}"
+    },
+    {
+      "name": "Rail range",
+      "kind": "input",
+      "description": "An accessible horizontal control for the actual garment position.",
+      "html": "<label class=\"ds-range\">เลื่อนราวเสื้อ<input type=\"range\" min=\"0\" max=\"100\" value=\"45\"></label>",
+      "css": ".ds-range{display:grid;gap:4px;max-width:320px;color:var(--muted,#62685f);font:12px 'DM Sans','Noto Sans Thai',sans-serif}.ds-range input{appearance:none;width:100%;height:44px;background:transparent;cursor:ew-resize}.ds-range input::-webkit-slider-runnable-track{height:4px;background:var(--line,#dcded5);border-radius:4px}.ds-range input::-webkit-slider-thumb{appearance:none;width:48px;height:12px;margin-top:-4px;border-radius:8px;background:var(--accent,#56634f)}.ds-range input:focus-visible{outline:2px solid var(--focus,#4f6948);outline-offset:2px}"
+    }
+  ],
+  "narrative": {
+    "northStar": "Modern wardrobe, physical presence.",
+    "overview": "The clothing rail remains the hero. Refine the existing white/cream RACK identity into a quieter fashion studio; the garments supply the depth, material and color.",
+    "keyCharacteristics": [
+      "Actual sculpted garments, calm colorways and distinct cloth/leather finishes.",
+      "Mixed-case typography with a lighter visual rhythm.",
+      "White and cream surfaces with restrained capsule controls.",
+      "Interactive 3D throughout the rail, collection edit, close view and open menus."
+    ],
+    "rules": [
+      {
+        "name": "The Material Rule",
+        "body": "Change only allowlisted clothing materials on a cloned assembly. Replace their printed diffuse map with the chosen solid color and tuned roughness; preserve sculpted folds, normal/AO maps, UVs, geometry, source textures and untouched hardware.",
+        "section": "colors"
+      }
+    ],
+    "dos": [
+      "Do let the real garments provide the visual detail.",
+      "Do keep thumbnail, color name, selected state and 3D material consistent.",
+      "Do use the existing source meshes, hanger fits and performance safeguards.",
+      "Do preserve keyboard, reduced-motion and phone layouts."
+    ],
+    "donts": [
+      "Don't add a walkable store or replace the rail hero.",
+      "Don't recolor source texture files or mutate shared loader materials.",
+      "Don't reintroduce heavy text shadows, beveled UI or decorative words behind clothing."
+    ]
+  }
+}

@@ -76,6 +76,8 @@ export function useGarmentModel(index: number, colorway: number, hangerStyle: Ha
   const imported = useMemo(() => product.model && models[0]
     ? cache.get(`${product.id}:${colorway}:${hangerStyle}`, () => cloneImportedGarment(models[0].scene, way.color, product.model!.colorMaterial, {
       hideNodes: product.model!.hideNodes,
+      finish: product.model!.finish,
+      accent: way.accent,
       hanger: hangerStyle === "metal" ? { style: "metal", fit: product.model!.metalHangerFit ?? product.model!.hangerFit }
         : { source: sharedHangers[0].scene, fit: product.model!.hangerFit },
     }))

@@ -49,6 +49,8 @@ Imported-garment tests check material/colour isolation between rail and menu pre
 
 ## Structure
 
+The current Modern wardrobe edit lives in `src/features/catalog/modernWardrobe.ts`: eleven real garments receive two neutral colorways and an explicit clothing-material allowlist. The renderer changes cloned diffuse colors/roughness while retaining source geometry, normal/AO maps and untouched hardware. All 22 new thumbnails in `public/assets/modern-wardrobe/` are renders of those exact assemblies. `DESIGN.md` and `.impeccable/design.json` record the lighter contemporary typography, matte surfaces and shared UI tokens.
+
 `src/app/` owns page state and composition. `src/features/landing/` contains the hero, collection edit, close-view controls, footer and responsive styling. `src/features/catalog/` contains typed demonstration products. `src/features/showroom/` owns shared garment geometry/materials, texture creation, the rail scene and the additional studio scenes. `src/shared/` contains reusable UI and the shared GSAP setup, hero hook and Three.js entrance timelines in `motion/`. `src/styles/` contains the responsive design system. No source files from the skincare project were copied.
 
 ## Consistent hangers and rail spacing

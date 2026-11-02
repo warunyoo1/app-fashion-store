@@ -3,7 +3,7 @@
   color: var(--ink);
   background: var(--paper);
   font-synthesis: none;
-  --display: "Oswald", "Noto Sans Thai", sans-serif;
+  --display: "DM Sans", "Noto Sans Thai", sans-serif;
   --control-size: 44px;
 }
 * {

@@ -1,45 +1,30 @@
 :root {
   color-scheme: light;
-  --paper: #fbfaf7;
+  --paper: #fafaf7;
   --surface: #ffffff;
-  --cream: #f3efe7;
-  --surface-hover: #eee8dd;
-  --selected: #e7ddcd;
-  --ink: #302c27;
-  --muted: #70685d;
-  --line: #ded7cc;
-  --line-strong: #b4a794;
-  --accent: #76624c;
-  --accent-hover: #574532;
-  --focus: #876240;
+  --cream: #f0efe9;
+  --surface-hover: #e8e9e2;
+  --selected: #dfe4dc;
+  --ink: #292d2a;
+  --muted: #62685f;
+  --line: #dcded5;
+  --line-strong: #a4ac9e;
+  --accent: #56634f;
+  --accent-hover: #384331;
+  --focus: #4f6948;
   --on-accent: #fffdf8;
-  --backdrop-word: #e5ded2;
-  --scroll-thumb: #9a8a74;
-  --shadow-control: 0 2px 6px #30271f0a;
-  --shadow-panel: 0 16px 48px #30271f1f;
-  --shadow-pressed: inset 0 1px 3px #30271f18;
-  --overlay: #30271f66;
-  --material-light: linear-gradient(180deg, var(--surface), var(--paper) 60%, var(--cream));
-  --material-dark-highlight: linear-gradient(180deg, color-mix(in srgb, var(--surface) 10%, transparent), transparent 80%);
-  --shadow-raised-light:
-    inset 0 1px 0 var(--surface),
-    inset 0 -1px 1px color-mix(in srgb, var(--line-strong) 28%, transparent),
-    0 8px 16px -6px color-mix(in srgb, var(--ink) 18%, transparent),
-    0 2px 4px -2px color-mix(in srgb, var(--ink) 12%, transparent);
-  --shadow-button-hover:
-    inset 0 1px 0 var(--surface),
-    0 2px 5px -2px color-mix(in srgb, var(--ink) 18%, transparent);
-  --shadow-inset-light: inset 0 2px 4px color-mix(in srgb, var(--ink) 14%, transparent);
-  --shadow-raised-dark:
-    inset 0 1px 0 color-mix(in srgb, var(--surface) 18%, transparent),
-    inset 0 -1px 1px color-mix(in srgb, var(--ink) 75%, black),
-    0 8px 16px -6px color-mix(in srgb, var(--ink) 24%, transparent),
-    0 2px 4px -2px color-mix(in srgb, var(--ink) 20%, transparent);
-  --shadow-raised-dark-hover:
-    inset 0 1px 0 color-mix(in srgb, var(--surface) 22%, transparent),
-    inset 0 -1px 1px color-mix(in srgb, var(--ink) 75%, black),
-    0 10px 20px -6px color-mix(in srgb, var(--ink) 28%, transparent);
-  --shadow-inset-dark:
-    inset 0 2px 4px color-mix(in srgb, var(--ink) 75%, black),
-    0 1px 3px -2px color-mix(in srgb, var(--ink) 22%, transparent);
+  --backdrop-word: #e5e6de;
+  --scroll-thumb: #929c89;
+  --shadow-control: 0 2px 6px #252c2308;
+  --shadow-panel: 0 18px 50px -14px #252c232e;
+  --shadow-pressed: inset 0 1px 2px #252c2314;
+  --overlay: #252c2370;
+  --material-light: var(--surface);
+  --material-dark-highlight: none;
+  --shadow-raised-light: 0 4px 14px -7px #252c2326;
+  --shadow-button-hover: 0 3px 10px -5px #252c2324;
+  --shadow-inset-light: inset 0 1px 2px #252c2314;
+  --shadow-raised-dark: 0 4px 10px -6px #252c2330;
+  --shadow-raised-dark-hover: 0 5px 12px -6px #252c2338;
+  --shadow-inset-dark: inset 0 1px 3px #10150f4d;
 }

@@ -6,9 +6,9 @@ import { useCollectionMotion } from "./useCollectionMotion";
 
 const StudioScene = lazy(() => import("../showroom/StudioScene"));
 const edits = [
-  { name: "Everyday", title: "Easy does it.", indices: [0, 10], description: "เริ่มจากตัวที่ใส่ง่าย แล้วใส่ความเป็นคุณลงไป" },
-  { name: "Graphic play", title: "Play your way.", indices: [2, 8], description: "สนุกกับลายกราฟิกและสีสันในมุมใหม่" },
-  { name: "Off duty", title: "Out of office.", indices: [6, 7], description: "เติมอีกเลเยอร์ให้วันสบาย ๆ ในจังหวะที่เป็นคุณ" },
+  { name: "Essentials", title: "An everyday foundation.", indices: [0, 10], description: "เสื้อทรงสบายในโทนสีที่หยิบมาจับคู่ได้ง่าย" },
+  { name: "Soft layers", title: "Room to move.", indices: [2, 9], description: "เลเยอร์สบาย ๆ กับสี Navy และ Washed ink" },
+  { name: "Outerwear", title: "The finishing layer.", indices: [6, 7], description: "เติมรูปทรงด้วยแจ็กเก็ตโทน Forest grey และ Ecru" },
 ];
 function SceneSlot({ indices, detail = false, angle = 0, zoom = 1, reduced, onUnavailable }: {
   indices: number[]; detail?: boolean; angle?: number; zoom?: number; reduced: boolean; onUnavailable?: () => void;
@@ -56,10 +56,10 @@ export const StyleJournal = memo(function StyleJournal({ onExplore, reduced }: {
       <div className="edit-copy">
         <div className="edit-intro">
           <h2 id="edit-heading">
-            <span className="edit-title-mask"><span className="edit-title-line">SAME RACK.</span></span>{" "}
-            <span className="edit-title-mask"><span className="edit-title-line">NEW ENERGY.</span></span>
+            <span className="edit-title-mask"><span className="edit-title-line">Less noise.</span></span>{" "}
+            <span className="edit-title-mask"><span className="edit-title-line">More you.</span></span>
           </h2>
-          <p>ตัวเดิม มุมใหม่<br />เจอสไตล์ที่เป็นคุณได้มากกว่าเดิม</p>
+          <p>สีเรียบ รูปทรงชัด รายละเอียดที่พอดี<br />จัดเลเยอร์ในจังหวะของคุณ</p>
         </div>
         <div className="edit-selector">
           <div className="edit-tabs" role="tablist" aria-label="เลือกสไตล์คอลเลกชัน">
@@ -82,14 +82,12 @@ export const StyleJournal = memo(function StyleJournal({ onExplore, reduced }: {
         </div>
       </div>
       <div className="edit-artboard" role="tabpanel" id="edit-stage" aria-labelledby={`edit-tab-${editIndex}`}>
-        <span className="edit-backdrop-word" aria-hidden="true">{editIndex === 0 ? "EASY" : editIndex === 1 ? "PLAY" : "OFF"}</span>
         <SceneSlot indices={edit.indices} reduced={reduced} />
-        <div className="edit-artboard-caption"><span>Find a different side.</span><span><MoveUpRight size={13} /> ขยับเมาส์ หรือเลื่อนหน้าต่อ</span></div>
+        <div className="edit-artboard-caption"><span>{edit.name}</span><span><MoveUpRight size={13} /> ขยับเมาส์เพื่อเปลี่ยนมุม</span></div>
       </div>
     </section>
     <section className="spatial-detail" id="our-studio" aria-labelledby="detail-heading">
       <div className="detail-artboard">
-        <span className="detail-backdrop-word" aria-hidden="true">CLOSER.</span>
         <SceneSlot indices={detailIndices} detail angle={angle} zoom={zoom} reduced={reduced} onUnavailable={onDetailUnavailable} />
         <div className="detail-view-controls" aria-label="ปรับมุมดูเสื้อ">
           <button disabled={detailUnavailable} aria-label="หมุนเสื้อตัวอย่าง 45 องศา" onClick={() => setAngle(a => a + Math.PI / 4)}><RotateCcw size={16} /><span>หมุนดู</span></button>
@@ -97,7 +95,7 @@ export const StyleJournal = memo(function StyleJournal({ onExplore, reduced }: {
         </div>
       </div>
       <div className="detail-copy">
-        <h2 id="detail-heading">GOOD FROM<br />EVERY ANGLE.</h2>
+        <h2 id="detail-heading">Made for<br />a closer look.</h2>
         <p>ลองหมุน แล้วมองให้ใกล้<br />ตั้งแต่ลายเสื้อ ถึงรูปทรงในอีกมุม</p>
         <DetailProductPicker value={detailIndex} onChange={changeDetailProduct} />
         <p className="detail-sample-note" aria-live="polite">{detailProduct.name}<br /><span>{detailProduct.model ? `โมเดลเสื้อตัวอย่างโดย ${detailProduct.model.author}` : detailProduct.photographs ? "ภาพสินค้าตัวอย่างบนทรง 3D จำลอง" : "ดีไซน์เสื้อและทรง 3D ตัวอย่าง"}</span></p>

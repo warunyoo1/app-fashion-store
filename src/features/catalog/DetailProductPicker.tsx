@@ -1,4 +1,4 @@
-import { useId } from "react";
+import { useId, useState } from "react";
 import * as Select from "@radix-ui/react-select";
 import { Check, ChevronDown, ChevronLeft, ChevronRight, ChevronUp } from "lucide-react";
 import { products } from "./products";
@@ -10,11 +10,14 @@ export function DetailProductPicker({ value, onChange }: {
   onChange: (index: number) => void;
 }) {
   const id = useId();
+  const [keyboardNavigation, setKeyboardNavigation] = useState(false);
   const product = products[value];
   return <div className="detail-product-picker">
     <label className="detail-product-label" htmlFor={id}>เปลี่ยนเสื้อที่ดู</label>
-    <Select.Root value={String(value)} onValueChange={next => onChange(Number(next))}>
-      <Select.Trigger id={id} className="detail-product-trigger detail-product-summary" aria-label="เปลี่ยนเสื้อที่ดู">
+    <Select.Root value={String(value)} onValueChange={next => onChange(Number(next))}
+      onOpenChange={open => { if (!open) setKeyboardNavigation(false); }}>
+      <Select.Trigger id={id} className="detail-product-trigger detail-product-summary" aria-label="เปลี่ยนเสื้อที่ดู"
+        onPointerDown={() => setKeyboardNavigation(false)} onKeyDown={() => setKeyboardNavigation(true)}>
         <span className="detail-product-preview" aria-hidden="true">
           <ProductThumbnail product={product} colorway={product.colorways[0]} />
         </span>
@@ -22,10 +25,11 @@ export function DetailProductPicker({ value, onChange }: {
           <strong><Select.Value>{product.name}</Select.Value></strong>
           <span aria-hidden="true">{product.category}</span>
         </span>
-        <Select.Icon asChild><ChevronDown size={18} aria-hidden="true" /></Select.Icon>
+        <Select.Icon className="detail-product-disclosure"><ChevronDown size={16} aria-hidden="true" /></Select.Icon>
       </Select.Trigger>
       <Select.Portal>
-        <Select.Content className="detail-product-menu" position="popper" align="start" sideOffset={12} collisionPadding={{ top: 96, right: 12, bottom: 12, left: 12 }}>
+        <Select.Content className="detail-product-menu" position="popper" align="start" sideOffset={12} collisionPadding={{ top: 96, right: 12, bottom: 12, left: 12 }}
+          data-keyboard={keyboardNavigation} onKeyDown={() => setKeyboardNavigation(true)} onPointerMove={() => setKeyboardNavigation(false)}>
           <Select.ScrollUpButton className="detail-product-menu-scroll" aria-label="เลื่อนรายการขึ้น">
             <ChevronUp size={16} aria-hidden="true" />
           </Select.ScrollUpButton>

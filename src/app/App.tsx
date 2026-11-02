@@ -336,7 +336,7 @@ export function App() {
         </section>
       </section>
       <div className="brand-ribbon" aria-hidden="true">
-        <Asterisk /><span>OFF THE RACK.</span><Asterisk /><span>INTO YOUR ROTATION.</span><Asterisk /><span>WEAR IT YOUR WAY.</span><Asterisk />
+        <Asterisk /><span>Off the rack.</span><Asterisk /><span>Into your rotation.</span><Asterisk /><span>Wear it your way.</span><Asterisk />
       </div>
       <StyleJournal onExplore={explore} reduced={reduced} />
       <StoreFooter onAbout={() => openPanel("about")} />
@@ -367,7 +367,7 @@ export function App() {
           {modelCredits.map(model => <p className="studio-copy" key={model.source}>
             โมเดล: <a href={model.source} target="_blank" rel="noreferrer">{model.title} โดย {model.author}</a>{" "}
             ภายใต้ <a href={model.license} target="_blank" rel="noreferrer">CC BY 4.0</a>
-            {" "}แยกสินค้าและปรับขนาดกับจุดแขวนสำหรับต้นแบบนี้
+            {" "}แยกสินค้า ปรับจุดแขวน และออกแบบสีวัสดุใหม่สำหรับต้นแบบนี้
           </p>)}
           <button
             className="pill-button dark full-width"

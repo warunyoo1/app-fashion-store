@@ -1,12 +1,15 @@
-import { Box3, Group, Mesh, MeshStandardMaterial, Vector3 } from "three";
+import { Box3, Group, Mesh, MeshPhysicalMaterial, MeshStandardMaterial, Vector3 } from "three";
 import type { BufferGeometry } from "three";
 import { createMetalHanger } from "./metalHanger.ts";
+import type { GarmentFinish } from "../catalog/modernWardrobe.ts";
 
 export const SHARED_HANGER_FILE = "/assets/models/shared-hanger/wooden-hanger.glb";
 export interface HangerFit { widthScale: number; drop: number; depth?: number }
 export type HangerStyle = "wood" | "metal";
 interface AssemblyOptions {
   hideNodes: readonly string[];
+  finish?: GarmentFinish;
+  accent?: string;
   hanger: { style?: "wood"; source: Group; fit: HangerFit } | { style: "metal"; fit: HangerFit };
 }
 
@@ -64,6 +67,18 @@ export function cloneImportedGarment(source: Group, color: string, colorMaterial
         material.depthWrite = true;
         material.alphaTest = Math.max(material.alphaTest, .02);
         if (original.name === colorMaterial) material.color.set(color);
+        if (assembly?.finish?.materials.includes(original.name)) {
+          // Refinish cloth only. Keep its sculpted folds, normal/AO maps and all hardware.
+          material.map = null;
+          material.color.set(assembly.finish.accentMaterials?.includes(original.name) ? assembly.accent ?? color : color);
+          material.roughness = assembly.finish.roughness;
+          material.metalness = assembly.finish.metalness ?? 0;
+          if (material instanceof MeshPhysicalMaterial) {
+            material.sheen = assembly.finish.roughness > .7 ? .18 : .05;
+            material.sheenColor.copy(material.color);
+            material.sheenRoughness = .85;
+          }
+        }
         clones.set(original, material);
       }
       return material;

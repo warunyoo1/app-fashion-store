@@ -13,8 +13,8 @@ export function StoreFooter({ onAbout }: { onAbout: () => void }) {
       <div className="footer-main">
         <div className="footer-invitation">
           <h2>
-            <span className="footer-title-mask"><span className="footer-title-line">Find your</span></span>{" "}
-            <span className="footer-title-mask"><span className="footer-title-line">next favorite.</span></span>
+            <span className="footer-title-mask"><span className="footer-title-line">A wardrobe,</span></span>{" "}
+            <span className="footer-title-mask"><span className="footer-title-line">your way.</span></span>
           </h2>
           <p>เสื้อตัวโปรดตัวต่อไป อาจอยู่บนราวนี้</p>
         </div>

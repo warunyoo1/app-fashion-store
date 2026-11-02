@@ -1,57 +1,112 @@
+---
+name: RACK Modern Wardrobe
+description: An interactive 3D clothing rail with a quiet contemporary wardrobe.
+colors:
+  paper: "#fafaf7"
+  surface: "#ffffff"
+  cream: "#f0efe9"
+  ink: "#292d2a"
+  muted: "#62685f"
+  line: "#dcded5"
+  accent: "#56634f"
+  selected: "#dfe4dc"
+  focus: "#4f6948"
+typography:
+  display:
+    fontFamily: "DM Sans, Noto Sans Thai, sans-serif"
+    fontSize: "clamp(44px, 5.3vw, 68px)"
+    fontWeight: 500
+    lineHeight: 1.08
+    letterSpacing: "-0.04em"
+  body:
+    fontFamily: "DM Sans, Noto Sans Thai, sans-serif"
+    fontSize: "14px"
+    fontWeight: 400
+    lineHeight: 1.85
+rounded:
+  control: "12px"
+  picker: "16px"
+  capsule: "999px"
+spacing:
+  small: "8px"
+  control: "16px"
+  group: "24px"
+  section: "80px"
+components:
+  button-primary:
+    backgroundColor: "{colors.ink}"
+    textColor: "{colors.surface}"
+    rounded: "{rounded.control}"
+    height: "48px"
+    padding: "12px 18px"
+  nav:
+    backgroundColor: "{colors.cream}"
+    textColor: "{colors.muted}"
+    rounded: "{rounded.capsule}"
+  picker:
+    backgroundColor: "{colors.surface}"
+    textColor: "{colors.ink}"
+    rounded: "{rounded.picker}"
+---
+
 # RACK storefront
 
-An editorial fashion landing page with an interactive clothing rail. The user requested a recognisable landing page and more realistic garment presentation. The source interaction remains https://www.instagram.com/p/Dez5Qf4Bdnz/.
+## Overview
 
-Palette: warm white #FBFAF7, elevated white #FFFFFF, cream #F3EFE7, charcoal brown #302C27, muted taupe #70685D, warm rule #DED7CC, action brown #76624C and selected cream #E7DDCD. Shared semantic roles live in src/styles/theme.css. Oswald is the condensed display and wordmark; DM Sans is English UI; Noto Sans Thai is Thai UI. Fonts are self-hosted.
+**Creative North Star: "Modern wardrobe, physical presence."**
 
-The interactive rack itself is the hero, directly under the sticky header. The first viewport shows the rail, hangers and garments at full width, a quiet caption and selection controls. No editorial photograph or large marketing headline precedes it. A cream ribbon, a collection edit with two suspended 3D garments, a warm white close-view 3D section and the footer follow. The rack fills the viewport beneath the header; phones ease the camera closer while a garment is selected.
+The clothing rail remains the hero. Refine the existing white/cream RACK identity into a quieter fashion studio; the garments supply the depth, material and color. This is an evolution of the existing landing page, with its navigation, rail and product flows preserved. The source interaction remains the Instagram reference recorded in REFERENCES.md.
 
-Keep the 64px framing allowance above the rail during product focus as well as browsing. The back button occupies this clear band, aligned to the hero's left inset with a 44px target, so camera zoom never raises the rail through it. Product controls stay below and beside the garment.
+**Key Characteristics:**
+- Actual sculpted garments, calm colorways and distinct cloth/leather finishes.
+- Mixed-case typography with a lighter visual rhythm.
+- White and cream surfaces with restrained capsule controls.
+- Interactive 3D throughout the rail, collection edit, close view and open menus.
 
-Browsing controls use the selected Single rail style: one white capsule containing two 44px arrow targets and a transparent garment-opening button. A quiet white-to-cream material gradient, upper edge highlight and soft downward shadow give this capsule depth, as specifically requested; other controls keep the Minimal & Clean treatment. Rounded inner actions gain a subtle raised surface on hover and an inset shadow while pressed. Count and action stay together without separate button outlines or a dark fill. The accessible label includes the current garment name and position. Keep the group compact enough for a 320px viewport and leave a clear gap before the rail slider below it. Reduced motion skips the small pressed displacement.
+## Colors
 
-The active catalogue contains twelve downloaded GLB garments: Relaxed Tee by funlab117, four pieces from Clothes by Naira, and seven curated Style3D CG/Obridje garments. These use the actual sculpted meshes, UVs and original PBR maps. Earlier photographic/procedural samples remain archived and are not shown on the rack. Names, sizes and prices remain illustrative. Original source links and modifications live in public/assets/sources.json.
+The frontmatter mirrors src/styles/theme.css. White and cream are the surfaces, charcoal is the main text/action color and muted olive is a small interaction accent. Keep original source GLBs on disk. modernWardrobe.ts owns the active product names, two colorways per refinished garment, finish material allowlists and matching thumbnails. The Relaxed Tee retains Chalk/Ink. Names, prices and sizes are demonstration data.
 
-The rail sits in a contained section and keeps hover, focus, rotation, size selection, favourites and a local demonstration bag. Display the sample-price label in product details. Load the 3D scene near the viewport. Motion uses mount-only initial transforms, a 65ms hover intent and a 160ms leave tolerance. Low-polygon invisible hit targets avoid detailed-cloth raycasting. Render on demand, cap DPR at 1.5, and stop once transforms and tint settle. Reduced motion is honoured.
+**The Material Rule.** Change only allowlisted clothing materials on a cloned assembly. Replace their printed diffuse map with the chosen solid color and tuned roughness; preserve sculpted folds, normal/AO maps, UVs, geometry, source textures and untouched hardware. Eleven garments have new two-color material edits; all twelve remain distinct source meshes. Do not replace real garments with procedural stand-ins.
 
-Native dialogs manage focus and Escape. HTML product controls are reachable without interacting with the canvas. There is no checkout, real stock, payment integration or live API dependency. The hook opening centre stays on the same rail in X/Z; focus never moves the hanger off the rail. The hanger roof slopes below the collar, and widths are fitted to tees, tanks and outerwear. Cloth uses physically based sheen, a deterministic woven bump map, tension folds and a low-opacity studio shadow catcher. Exact brand-specific silhouettes and side details still require corresponding product models.
+## Typography
 
-The final direction keeps the original rail landing page and extends 3D down the page. Do not turn it into a walkable store. The collection edit has three keyboard-accessible style tabs; each swaps the actual WebGL garments. Its CTA opens the matching product on the hero rail. The warm white close-view section supports explicit 45-degree rotation and a 1.0–1.65 zoom control. Scroll and pointer parallax is subtle and disabled with reduced motion. Additional scenes are lazy mounted near the viewport, pause while outside it and render only during changes. See REFERENCES.md for creator references and the rationale.
+Self-hosted DM Sans carries headings and English UI; Noto Sans Thai carries Thai text. Keep Oswald only for the RACK wordmark. Headings use sentence case, medium weight and a clear 1.08 line-height. Hero caption is 28px desktop / 25px phone. Collection headings reach 68px; close-view headings reach 64px. Body text is 13–14px and metadata is 11–12px. No decorative backdrop words behind the clothes. Keep real creator/source names visible in credits.
 
-The Impeccable refinement keeps this identity. Primary controls share a 44px minimum target via --control-size. Product names use readable mixed case; prices and zoom values use tabular numerals. Supporting text uses 11–14px rather than miniature captions. Section headings carry their hierarchy without an extra label above them. All sections use a warm brown keyboard-focus ring. Dialog actions close and restore focus before scrolling to the hero, so bag and favourites links work from every section. Stable scrollbar space prevents a layout shift when dialogs open.
+## Layout
 
-The footer carries the navbar's white/cream material treatment into three raised capsule navigation actions with quiet cream arrow circles. Keep the existing two-line invitation and a faint downward text shadow, with the navigation aligned alongside it on desktop. Below 901px the links form one row beneath the invitation, then stack below 641px; targets remain 64px / 60px high. Wordmark/copyright and a raised back-to-top action share the next row. All five creator/source and license pairs stay visible in their own wrapping credit list, with distinct accessible license names and 44px-high links. Credits become two columns on small tablets and one on narrow phones. Footer colors, elevation, focus and pressed states use the shared theme tokens. Arrow/pressed displacement stops for reduced motion. Do not add new WebGL scenes or continuous animation to this area.
+The full-width rail occupies the first viewport below the sticky header (82px desktop, 69px phone). Keep the clear 64px band above the rail for the focused back action; zoom must never raise the rail through controls. Browsing controls and the range slider remain below the garment. Space rail items using their actual width/depth and resting angle; reserve the full rotation envelope for a focused item.
 
-If the WebGL renderer fails, scene error boundaries show the HTML catalogue and product thumbnails. The main controls remain usable; rotation is disabled when no 3D renderer is available. Additional studio scenes use a static product preview and keep the product-detail links available. This compatibility mode has no live inventory or payment functionality.
+The collection edit remains a copy/3D pair with three tabs: Essentials, Soft layers and Outerwear. The next section pairs the close-view garment with its picker/details action. At 900px adapt columns; at 600px stack copy and scenes with full-width product controls. Header navigation becomes a native popover below 741px. Footer links form a row below 901px, then stack below 641px. Preserve 44px targets, visible keyboard focus and stable scrollbar space.
 
-Product colour choices use a separate ColorwayPicker with native radio inputs, 44px targets and circular two-tone swatches sourced from each colourway's base/accent values. A dark ring and check mark identify the selection, with its full colour name below. Keyboard focus is separate from selected state. The picker sits beside the garment on desktop and above the rail on phones so it does not obscure the clothing. Miniature CSS garment silhouettes are reserved for static product thumbnails.
+## Elevation & Depth
 
-The close-view scene can switch between all twelve catalogue garments with a Radix Select menu and previous/next buttons. The cream menu shows product previews, names and categories; a cream selected row and check mark identify the current garment. Its scrollable popup matches the trigger width, avoids the sticky header and screen edges, and supports keyboard navigation, typeahead, Escape and outside dismissal. Changing garments returns rotation to the front and zoom to 1×. The displayed name, image-source note, accessible scene label and product-detail CTA always match the selected garment. The rail's selected product is independent until the visitor follows that CTA.
+Depth comes primarily from WebGL lighting, real cloth folds and subtle shadows. UI surfaces are matte: no beveled gradients or large text shadows. Raised light controls use a soft 0 4px 14px -7px shadow. Popups/dialogs use the stronger panel shadow. The garment picker uses a fine border without a raised shadow. Keep shadow vocabulary in theme.css, not scattered overrides.
 
-Western Shirt has a close-view-only brushed-metal wire hanger. The hook crown keeps the existing anchor; the wire shoulders use the product's separate metalHangerFit (drop .32, depth -.13) so they sit between its actual front and back cloth surfaces, with only the stem and hook above the collar. Keep this fit in the catalogue generator as well as the generated product. Apply this variant only from A closer look for product id western-shirt; other selections, the hero, collection and menu previews use the wooden default. Include hanger style in preparation/display/cache keys so switching products cannot reuse the wrong assembly. Generated metal geometry/materials belong to the canvas cache and release with it. Keep the garment's original GLB, PBR maps, framing and rotation/zoom behavior.
+## Shapes
 
-GSAP adds a bounded arrival for the complete hero rail and its caption. ScrollTrigger introduces the two studio scenes as they enter view and maps scroll progress to a subtle change of viewing angle. New studio garments turn and settle into place in 480ms; scene arrivals take 800ms with power3.out easing. Timelines animate separate presentation parents so they do not compete with garment interaction, rotation or camera zoom. Updates request demand-rendered frames; there are no repeating timelines. React context cleanup restores transforms and removes animation/scroll subscriptions on replacement. System reduced-motion preference skips these spatial entrances while retaining product selection and explicit viewing controls.
+Retain the user's capsule navbar and single capsule rail picker. Inner arrows have 44px targets; main actions use 12px corners. The garment select has 16px corners and its popup has 8px gaps between items. Colorway controls retain circular native-radio swatches with a selected ring/check and readable color name. Never obscure garments with oversized UI.
 
-Menu surfaces extend the same palette into clean matte controls. The shared spatial tokens in spatialUi.css define white/cream surfaces, fine borders, restrained popup elevation and subtle pressed states. The header keeps the supplied capsule shape in the site's white/cream palette: RACK on the left, a centered 480px cream pill, and circular saved/bag actions on the right. Its three destinations share a white selection pill, warm raised shadows and a 280ms transform transition. Text uses the existing ink/muted roles; keyboard focus uses the warm focus token. Selection tracks the visible section and updates on navigation. Below 741px, a cream circular menu trigger opens a matching native popover with all three destinations, Escape and outside dismissal. Keep the 82px desktop / 69px phone header heights and existing rail framing. Header styles live in storeHeader.css and reuse the shared theme colors/shadows, with no header overrides in global, landing or spatial UI styles. Fit imported garment width and hanger support to the supplied geometry.
+## Components
 
-Bag, favorites and About dialogs reuse the existing garment renderer for one demand-rendered 3D preview per open dialog. Preview rotation and zoom remain separate from the rail. Bag row hover or keyboard focus previews that exact garment and colorway; removing it falls back to a remaining item. Favorites preview their current saved colorway. The preview pauses outside view and disposes with the dialog. Native dialog focus handling remains, its heading and close action stay visible during scrolling, and a bounded GSAP perspective entrance honors reduced motion. No new Three.js libraries are introduced for these menus.
+**Rail.** Wheel/trackpad, horizontal dragging, arrows and a keyboard-accessible range control reach all twelve garments. Pointer intent uses a short enter delay and leave tolerance. Low-polygon hit targets avoid detailed-cloth raycasting. Hover does not shift the pan anchor. A drag cannot become a click. Focus preserves hook-to-rail alignment, rotation, sizes, favorites and the local bag. The initial featured garment retains source id western-shirt, now displayed as Tie-detail Shirt.
 
-Studio Tee now tests an actual imported garment in the existing product slot. A preprocessing wrapper fits the supplied hook-opening centre to local [0, 1.47, 0] with a 2-unit cloth height, preserving the rail camera, movement and suspension formula. The supplied hanger replaces the procedural hanger for this item, so no second hanger or procedural collar is drawn. Each display clones its materials while sharing cached GLB geometry and textures; fading a rail neighbour cannot recolour or fade another canvas. Chalk and Ink tint only the Shirt material. Matching thumbnails are rendered from the same asset for each colourway. GLTFLoader handles the local file and existing scene error boundaries retain the accessible catalogue fallback. The source file is about 8.18 MB; further texture compression is a future optimization before adding many imported garments. Keep plaggy's linked source and CC BY 4.0 attribution in the footer/About and public asset credits.
+**Hangers.** The shared wooden hanger stays the default across hero, collection and menu previews. Only source id western-shirt in A closer look uses the wire-metal hanger. Its separate metalHangerFit (drop .32, depth -.13) positions the shoulders between the real front/back cloth surfaces. Keep the hook crown fixed and include hanger style in preparation/display/cache keys. Generated hanger geometry/materials are owned by the canvas cache and disposed with it.
 
-The complete Clothes collection now replaces the old catalogue alongside Studio Tee (five products total). The original file is split losslessly into four compact GLBs; source geometry and all PBR maps, including specular extension textures, are retained. Hardware is partitioned by its position in the collection so jacket sleeve details stay with the jacket. Original hanger meshes stay in the archived/public GLBs but are replaced in the displayed assembly by the shared wooden hanger. Wide-garment spacing and mobile/close-view camera fit follow actual model dimensions. Initial browsing turns Cassette Hoodie forward; the hero CTA and initial close view select it. Collection tabs reference the new catalogue; all thumbnails are actual renders. Credits for the same source collection appear once per surface.
+**Studio scenes.** Existing 45-degree rotation and 1.0–1.65 zoom controls remain. Switching products resets rotation/zoom. The Radix picker supports typeahead, arrows, Escape and outside dismissal. Its white popup uses cream for the selected row with a dark circular check; hover is a quiet paper fill and keyboard focus has its own inset outline. Keep 8px option gaps, uncropped garment previews and a small circular disclosure action on the trigger. Studio selection is independent until the details action opens that garment on the rail. Labels and creator notes must match the current garment.
 
-All five products now use the same wooden hanger from plaggy’s Studio Tee GLB. The shared source is cached once; each display hides the original embedded hanger, clones the shared hanger materials and fits the wooden shoulders to its collar without moving the hook opening. The hoodie keeps the shoulders below the hood opening. Newly created hanger geometry is disposed with its display. Rail slots use each garment’s width, depth and resting rotation plus a clear gap; open/focused slots reserve the full rotation envelope. Desktop framing fits the complete spaced rack, while phones centre the currently browsed item. Thumbnails use the same assembled models.
+**Menus.** Native dialogs retain focus handling, Escape, sticky heading/close action and a single demand-rendered garment preview. Bag hover/focus previews its exact product/colorway; removing it selects a remaining item. Dialog actions restore focus/unlock the page before scrolling to the hero. Keep the demonstration-price label and the no-real-checkout explanation.
 
-The active first product is Relaxed Tee, using T Shirt by funlab117 (CC BY 4.0), replacing the archived CHEESE sample. Source geometry is simplified from 237,938 to 29,116 triangles with locked boundaries, normal/UV weights and a .003 error limit. Matching surfaces are merged into one draw call; the public GLB is about .9 MB. The source has no texture images; cotton roughness/sheen and Chalk/Ink material tints are added. It uses the common wooden hanger, now extracted into a separate 3.7 MB GLB without the old shirt body or artwork. Product slot 0, thumbnails, collection, close view and all menu previews use the new model. The hero opens with this item facing forward and its CTA is derived from the featured product name. Keep both funlab117 garment credit and plaggy hanger credit.
+**Motion and performance.** Preserve existing bounded GSAP arrivals, the tab marker and subtle studio parallax. No new continuous animation. Animate presentation parents independently from garment/camera controls. Honor reduced motion, stop inactive canvases, retain demand rendering and cap DPR at 1.5. Cache prepared assemblies per canvas/colorway/hanger. Reuse shaders; spread texture uploads/compilation across frames and cancel work at teardown. Keep the previous garment until the next is prepared. Do not dispose loader-owned geometry/textures during per-display cleanup or StrictMode reacquisition.
 
-The catalogue contains twelve distinct imported garments, including seven additional CC BY 4.0 models from Style3D CG and Obridje. Geometry preparation preserves the original embedded PBR maps, fits the shared wooden hanger, and reduces dense source meshes. curated-models.json records download sources; curated-rail-models.json records sizes and simplification results; write-curated-catalog.mjs writes the typed product entries. Source material names are retained; Rose Leather Jacket applies an additional demonstration rose tint. Opaque garment pixels write depth even when their source uses BLEND, preventing inner surfaces from drawing over the front in close views. Alpha testing preserves actual cutouts while material clones still support fading.
+**Fallbacks and attribution.** Renderer failures retain the HTML catalogue/product thumbnails and disable rotation. Every modern thumbnail is a render of the actual assembled source mesh/material/colorway, not a recolored original photo. Keep linked CC BY 4.0 creator/license credits in footer/About and public asset records, including the material modifications. No payment, stock or API integration is implied.
 
-The hero is a long rail at a readable camera scale. Wheel/trackpad movement over the rack, horizontal pointer dragging, a themed accessible range control, arrow buttons, and range keyboard Home/End/arrow keys all reach every item. Vertical wheel scrolling returns to the page at either end; product focus leaves wheel events to page scrolling and keeps drag-to-rotate. The pan anchor is independent of hover spacing. Input is coalesced to animation frames, hover pauses during panning, and a drag cannot become a product click. Render only the visible neighbourhood plus a small margin, with per-garment Suspense so an unseen asset does not block the whole rack. Keep demand rendering, cloned materials, reduced motion, and the existing shirt selection, favourites, bag and studio flows.
+## Do's and Don'ts
 
-The Minimal & Clean theme keeps the 3D rail, typography, responsive layouts and interactions. White and cream alternate across the hero, collection edit, close view and footer. Menus and dialogs share the same warm neutral roles; only primary actions and selected sizes use dark fills. Remove green UI fills, bevel gradients and decorative hover lifts. Product colorways, PBR images and meshes stay true to their source.
-
-The collection copy groups its heading/intro, style navigation and description/action with 32px and 24px gaps (28px at the phone breakpoint). Three equal-width text tabs share a thin moving underline; the primary garment action has a 48px target. This dark action also uses the requested material depth: a restrained upper highlight, soft downward shadow, 12px corners and inset feedback while pressed, with displacement removed for reduced motion. GSAP reveals the two heading lines once on section arrival, moves the shared underline in 320ms and introduces changed collection details in 360ms alongside the existing 3D garment transition. Marker interruption continues from its current position. Text defaults visible, live announcements remain mounted across changes, all tweens/triggers clean up, and reduced motion updates the selection immediately without spatial animation.
-
-Material roles in theme.css now share light/dark highlights, raised shadows and pressed shadows across the rail controls, collection CTA and close-view controls. The close-view heading has a faint downward text shadow. Its 16px garment selector has a light raised surface, a recessed open state and a matching elevated popup; keep the 8px option gaps and keyboard selection behavior. Pagination retains 44px targets with 12px corners, and the light details CTA has a 48px target. Component-owned picker styles replace the previous flat overrides in spatialUi.css so state styling has one owner.
-
-Interaction performance preserves those material roles and the original model/texture detail. Each canvas retains its own prepared garment assemblies so revisits reuse shaders without sharing mutable colour/fade state with another scene. Texture uploads and mesh compilation are spread across frames; GPU completion polling and queued work cancel when the canvas closes. StrictMode must not dispose an immediately reacquired cache. Studio selection retains the previous garment until the new request is ready and uses a small loading status above the bottom controls while switching. Readiness follows the requested garment/colorway, and inactive canvases stop drawing. Stable props keep hero clicks from updating the collection/detail renderers. Keep keyboard, reduced motion, responsive framing, error fallbacks, and all existing selection/bag/favourite flows.
+- Do let the real garments provide the visual detail.
+- Do keep thumbnail, color name, selected state and 3D material consistent.
+- Do use the existing source meshes, hanger fits and performance safeguards.
+- Do preserve keyboard, reduced-motion and phone layouts.
+- Don't add a walkable store or replace the rail hero.
+- Don't recolor source texture files or mutate shared loader materials.
+- Don't reintroduce heavy text shadows, beveled UI or decorative words behind clothing.

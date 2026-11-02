@@ -17,11 +17,10 @@
 }
 
 .footer-invitation h2 {
-  font: 500 clamp(52px, 6.5vw, 88px)/1.02 var(--display);
-  letter-spacing: -0.03em;
-  text-transform: uppercase;
+  font: 500 clamp(44px, 5.8vw, 76px)/1.08 var(--display);
+  letter-spacing: -0.04em;
   margin: 0;
-  text-shadow: 0 3px 6px color-mix(in srgb, var(--ink) 10%, transparent);
+  text-shadow: none;
 }
 
 .footer-title-mask { display: block; overflow: hidden; padding-bottom: .12em; margin-bottom: -.12em; }
@@ -110,7 +109,7 @@
   align-items: flex-start;
   gap: 1px;
   min-height: var(--control-size);
-  font: 600 52px/1 var(--display);
+  font: 600 52px/1 "Oswald", sans-serif;
   letter-spacing: -0.03em;
 }
 

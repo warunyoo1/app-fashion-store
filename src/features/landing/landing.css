@@ -54,8 +54,8 @@ body:has(.dialog[open]) {
   padding: 15px 4.7%;
   color: var(--ink);
   white-space: nowrap;
-  font: 500 19px/1 var(--display);
-  letter-spacing: 0.015em;
+  font: 500 14px/1.4 var(--display);
+  letter-spacing: -0.015em;
 }
 .brand-ribbon svg {
   width: 23px;

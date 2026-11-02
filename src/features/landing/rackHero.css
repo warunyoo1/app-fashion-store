@@ -33,18 +33,20 @@
 }
 .rack-hero .rack-caption {
   position: absolute;
-  top: 17px;
+  top: 16px;
   left: 4.7%;
+  right: 4.7%;
 }
 .rack-hero .rack-caption p {
-  font-size: 11px;
+  font-size: 12px;
   line-height: 1.6;
   color: var(--muted);
   margin: 0;
+  max-width: none;
 }
 .rack-hero .rack-caption .rack-title {
-  font: 500 22px/1.1 var(--display);
-  letter-spacing: -0.02em;
+  font: 500 28px/1.1 var(--display);
+  letter-spacing: -0.035em;
   color: var(--ink);
   margin: 0 0 6px;
 }
@@ -168,9 +170,10 @@
   .rack-hero .rack-caption {
     top: 19px;
     left: 5%;
+    right: 5%;
   }
   .rack-hero .rack-caption .rack-title {
-    font-size: 21px;
+    font-size: 25px;
   }
   .rack-hero .rack-caption p {
     font-size: 11px;

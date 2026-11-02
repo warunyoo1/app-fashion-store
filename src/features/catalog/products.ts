@@ -1,4 +1,6 @@
 import { curatedProducts } from "./curatedProducts.ts";
+import { modernizeProduct } from "./modernWardrobe.ts";
+import type { GarmentFinish } from "./modernWardrobe.ts";
 
 export type GarmentKind = "tee" | "jersey" | "tank" | "longsleeve" | "jacket";
 export type Motif = "plain" | "stripes" | "bands" | "split" | "hoops" | "varsity" | "graphic";
@@ -14,6 +16,7 @@ export interface Product {
     width: number; height: number; depth: number;
     hideNodes: string[]; hangerFit: { widthScale: number; drop: number; depth?: number };
     metalHangerFit?: { widthScale: number; drop: number; depth?: number };
+    finish?: GarmentFinish;
     title: string; author: string; source: string; license: string;
   };
 }
@@ -27,7 +30,7 @@ function clothesModel(id: string, width: number, height: number, depth: number, 
   };
 }
 // Downloaded, sculpted GLB models. Names, sizes and prices are demonstration data.
-export const products: Product[] = [
+const sourceProducts: Product[] = [
   {
     id: "relaxed-tee", name: "Relaxed Tee", category: "Everyday basics", kind: "tee", motif: "plain", number: "01", price: 690,
     model: {
@@ -66,6 +69,7 @@ export const products: Product[] = [
   },
   ...curatedProducts,
 ];
+export const products = sourceProducts.map(modernizeProduct);
 export const featuredProduct = products.findIndex(product => product.id === "western-shirt");
 const hangerCredit = { title: "Wooden hanger from CC0 - Shirt On Hanger", author: "plaggy",
   source: "https://sketchfab.com/3d-models/cc0-shirt-on-hanger-846d8f285fcb426498033ae67aee2d10", license: "https://creativecommons.org/licenses/by/4.0/" };

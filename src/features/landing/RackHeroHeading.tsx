@@ -11,8 +11,8 @@ export function RackHeroHeading({
   return (
     <div className="rack-heading">
       <div className="rack-caption">
-        <p className="rack-title">Find your next favorite.</p>
-        <p>เลือกเสื้อบนราว ในแบบที่เป็นคุณ</p>
+        <p className="rack-title">Everyday, reimagined.</p>
+        <p>เส้นสายเรียบง่าย สไตล์ในแบบคุณ</p>
       </div>
       <div className="rack-meta">
         <span>{String(count).padStart(2, "0")} styles on the rack</span>
