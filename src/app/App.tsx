@@ -7,7 +7,6 @@ import {
   useState,
 } from "react";
 import {
-  ArrowLeft,
   ArrowRight,
   ArrowUpRight,
   Asterisk,
@@ -32,6 +31,7 @@ import { StoreFooter } from "../features/landing/StoreFooter";
 import { StoreHeader } from "../features/landing/StoreHeader";
 import { MenuProductPreview } from "../features/catalog/MenuProductPreview";
 import { useHeroMotion } from "../shared/motion/useHeroMotion";
+import { useScrollTextMotion } from "../shared/motion/useScrollTextMotion";
 const Showroom = lazy(() => import("../features/showroom/Showroom"));
 type BagItem = { id: string; size: Size; colorway: number; quantity: number };
 const formatPrice = (price: number) =>
@@ -51,6 +51,7 @@ export function App() {
     [reduced, setReduced] = useState(false),
     [scale, setScale] = useState({ unit: 80, railY: 120 });
   const [menuPreview, setMenuPreview] = useState<{ index: number; colorway: number } | null>(null);
+  const [addedKey, setAddedKey] = useState<string | null>(null);
   const openPanel = (next: "bag" | "about" | "saved") => { setMenuPreview(null); setPanel(next); };
   const [rackVisible, setRackVisible] = useState(false);
   const [exploreRequest, setExploreRequest] = useState<number | null>(null);
@@ -59,11 +60,13 @@ export function App() {
   const rackSection = useRef<HTMLElement>(null);
   const storefront = useRef<HTMLElement>(null);
   useHeroMotion(storefront, ready);
+  useScrollTextMotion(storefront);
   const pointer = useRef<{ x: number; angle: number } | null>(null);
   const current = selected ?? front ?? 0,
     product = products[current],
     way = product.colorways[colorways[current]],
     count = bag.reduce((sum, i) => sum + i.quantity, 0);
+  const purchaseKey = `${product.id}:${colorways[current]}:${size}`;
   const bagPreviewItem = bag.find(item => menuPreview && item.id === products[menuPreview.index].id && item.colorway === menuPreview.colorway) ?? bag[0];
   const bagPreviewIndex = bagPreviewItem ? products.findIndex(p => p.id === bagPreviewItem.id) : current;
   const savedPreviewIndex = menuPreview && saved.includes(products[menuPreview.index].id) ? menuPreview.index : saved.length ? Math.max(0, products.findIndex(p => saved.includes(p.id))) : current;
@@ -79,6 +82,11 @@ export function App() {
     const timeout = setTimeout(() => setToast(""), 3000);
     return () => clearTimeout(timeout);
   }, [toast]);
+  useEffect(() => {
+    if (!addedKey) return;
+    const timeout = setTimeout(() => setAddedKey(null), 1800);
+    return () => clearTimeout(timeout);
+  }, [addedKey]);
   const onReady = useCallback(() => setReady(true), []);
   const onBrowse = useCallback((index: number) => setFront(index), []);
   useEffect(() => {
@@ -148,6 +156,7 @@ export function App() {
         : [...list, { id: product.id, size, colorway, quantity: 1 }];
     });
     setToast("เพิ่ม " + product.name + " ไซซ์ " + size + " ลงถุงแล้ว");
+    setAddedKey(purchaseKey);
   };
   const changeQuantity = (item: BagItem, delta: number) =>
     setBag((list) =>
@@ -244,7 +253,7 @@ export function App() {
                   {front !== null && <span className="rack-browse-count" aria-hidden="true">
                     <span>{pad(current + 1)}</span><span>/ {pad(products.length)}</span>
                   </span>}
-                  <span>{front === null ? "ดูทีละตัว" : "ดูตัวนี้"}</span>
+                  <span>{front === null ? "ดูทีละตัว" : "ดูรายละเอียด"}</span>
                   <ArrowUpRight size={16} aria-hidden="true" />
                 </button>
                 <button
@@ -258,19 +267,19 @@ export function App() {
             </div>
           ) : (
             <>
-              <button className="back-to-rack" onClick={backToRack}>
-                <ArrowLeft size={14} /> กลับไปที่ราว
+              <button className="back-to-rack" aria-label="กลับไปที่ราว" onClick={backToRack}>
+                <span>ปิด</span><X size={16} />
               </button>
-              <ColorwayPicker product={product} value={colorways[current]}
-                onChange={index => setColorways(list => list.map((colorway, i) => i === current ? index : colorway))} />
-              <div className="product-detail" aria-live="polite">
-                <h2>{product.name}</h2>
+              <div className="product-detail" onPointerDown={event => event.stopPropagation()}>
+                <h2 aria-live="polite">{product.name}</h2>
                 <p>
-                  {way.colorName} · ฿{formatPrice(product.price)}
+                  ฿{formatPrice(product.price)} <span className="product-media-note">ราคาตัวอย่าง</span>
                 </p>
-                <span className="product-media-note">ราคาตัวอย่าง</span>
+                <ColorwayPicker product={product} value={colorways[current]} layout="inline"
+                  onChange={index => setColorways(list => list.map((colorway, i) => i === current ? index : colorway))} />
                 <div className="detail-actions">
-                  <div className="size-selection" aria-label="เลือกไซซ์">
+                  <span className="purchase-label">ไซซ์</span>
+                  <div className="size-selection" role="group" aria-label="เลือกไซซ์">
                     {sizes.map((s) => (
                       <button
                         key={s}
@@ -281,11 +290,12 @@ export function App() {
                       </button>
                     ))}
                   </div>
-                  <button className="pill-button dark" onClick={addToBag}>
-                    เพิ่มลงถุง <Plus size={14} />
+                  <button className={"pill-button dark purchase-action" + (addedKey === purchaseKey ? " is-added" : "")} onClick={addToBag}>
+                    {addedKey === purchaseKey ? <>เพิ่มแล้ว <Check size={16} /></> : <>เพิ่มลงถุง <ShoppingBag size={16} /></>}
                   </button>
                 </div>
-                <div className="detail-tools">
+              </div>
+                <div className="detail-tools" role="group" aria-label="ปรับมุมและเลือกเสื้อ" onPointerDown={event => event.stopPropagation()}>
                   <button
                     className="round-arrow"
                     aria-label="เสื้อตัวก่อนหน้า"
@@ -300,7 +310,7 @@ export function App() {
                     title="หมุนเสื้อ 180 องศา"
                     onClick={() => setAngle((a) => a + Math.PI)}
                   >
-                    <RotateCcw size={16} />
+                    <RotateCcw size={16} /><span className="focus-tool-label">หมุนดู</span>
                   </button>
                   <button
                     className={
@@ -330,7 +340,6 @@ export function App() {
                     <ChevronRight size={15} />
                   </button>
                 </div>
-              </div>
             </>
           )}
         </section>

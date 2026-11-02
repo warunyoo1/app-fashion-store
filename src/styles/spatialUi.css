@@ -41,12 +41,6 @@
 .colorway-swatch {
   box-shadow: none;
 }
-.detail-view-controls {
-  border: 0;
-  border-radius: 16px;
-  background: var(--surface);
-  box-shadow: var(--shadow-control);
-}
 .dialog {
   width: 540px;
   background: var(--spatial-paper);

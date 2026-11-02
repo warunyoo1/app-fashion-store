@@ -89,6 +89,29 @@
   line-height: 1.6;
   overflow-wrap: anywhere;
 }
+.colorway-picker[data-layout="inline"] {
+  position: static;
+  display: grid;
+  justify-items: var(--colorway-align, center);
+  gap: 0;
+  width: auto;
+  max-width: 100%;
+  padding: 0;
+  background: transparent;
+  box-shadow: none;
+}
+.colorway-picker[data-layout="inline"] legend {
+  float: none;
+  display: block;
+  width: auto;
+  margin-bottom: 2px;
+  color: var(--muted);
+  font-size: 11px;
+}
+.colorway-picker[data-layout="inline"] legend span { display: none; }
+.colorway-picker[data-layout="inline"] .colorway-options { gap: 4px; }
+.colorway-picker[data-layout="inline"] .colorway-swatch { width: 22px; height: 22px; }
+.colorway-picker[data-layout="inline"] .colorway-name { margin: 0; font-size: 11px; }
 @media (max-width: 600px) {
   .colorway-picker {
     top: 18px;

@@ -51,12 +51,10 @@ export function DetailProductPicker({ value, onChange }: {
         </Select.Content>
       </Select.Portal>
     </Select.Root>
-    <div className="detail-product-pagination">
-      <span className="detail-product-count">{String(value + 1).padStart(2, "0")}<span> / {String(products.length).padStart(2, "0")}</span></span>
-      <div className="detail-product-options">
-        <button type="button" className="detail-product-previous" aria-label="เสื้อตัวก่อนหน้าในมุมดูใกล้" onClick={() => onChange((value + products.length - 1) % products.length)}><ChevronLeft size={20} aria-hidden="true" /></button>
-        <button type="button" className="detail-product-next" aria-label="เสื้อตัวถัดไปในมุมดูใกล้" onClick={() => onChange((value + 1) % products.length)}><ChevronRight size={20} aria-hidden="true" /></button>
-      </div>
+    <div className="detail-product-pagination" role="group" aria-label="เลือกเสื้อทีละตัว">
+      <button type="button" className="detail-product-previous" aria-label="เสื้อตัวก่อนหน้าในมุมดูใกล้" onClick={() => onChange((value + products.length - 1) % products.length)}><ChevronLeft size={18} aria-hidden="true" /></button>
+      <span className="detail-product-count"><span>{String(value + 1).padStart(2, "0")}</span><span>/</span><span>{String(products.length).padStart(2, "0")}</span></span>
+      <button type="button" className="detail-product-next" aria-label="เสื้อตัวถัดไปในมุมดูใกล้" onClick={() => onChange((value + 1) % products.length)}><ChevronRight size={18} aria-hidden="true" /></button>
     </div>
   </div>;
 }

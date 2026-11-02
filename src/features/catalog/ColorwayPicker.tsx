@@ -3,13 +3,14 @@ import type { CSSProperties } from "react";
 import type { Product } from "./products";
 import "./colorwayPicker.css";
 
-export function ColorwayPicker({ product, value, onChange }: {
+export function ColorwayPicker({ product, value, onChange, layout = "floating" }: {
   product: Product;
   value: number;
   onChange: (index: number) => void;
+  layout?: "floating" | "inline";
 }) {
   return (
-    <fieldset className="colorway-picker" onPointerDown={event => event.stopPropagation()}>
+    <fieldset className="colorway-picker" data-layout={layout} onPointerDown={event => event.stopPropagation()}>
       <legend>สีเสื้อ <span>{product.colorways.length} สี</span></legend>
       <div className="colorway-options">
         {product.colorways.map((colorway, index) => (

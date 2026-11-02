@@ -2,7 +2,7 @@ import { useLayoutEffect } from "react";
 import type { RefObject } from "react";
 import { gsap, ScrollTrigger } from "../../shared/motion/gsap";
 
-/** A single arrival for the invitation and its raised navigation controls. */
+/** Quiet arrivals for the footer links; heading choreography is shared. */
 export function useFooterMotion(root: RefObject<HTMLElement | null>) {
   useLayoutEffect(() => {
     if (!root.current) return;
@@ -12,16 +12,12 @@ export function useFooterMotion(root: RefObject<HTMLElement | null>) {
       const main = footer.querySelector<HTMLElement>(".footer-main")!;
       const bottom = footer.querySelector<HTMLElement>(".footer-bottom")!;
       const intro = gsap.timeline({ paused: true, defaults: { ease: "power3.out" } });
-      intro.fromTo(footer.querySelectorAll(".footer-title-line"),
-        { yPercent: 30, opacity: .65 },
-        { yPercent: 0, opacity: 1, duration: .72, stagger: .08, clearProps: "transform,opacity" }, 0);
-      intro.fromTo(footer.querySelector(".footer-invitation p"),
-        { y: 8 },
-        { y: 0, duration: .5, clearProps: "transform" }, .18);
+      intro.fromTo(footer, { "--footer-blend-scale": .45 },
+        { "--footer-blend-scale": 1, duration: .8, clearProps: "--footer-blend-scale" }, 0);
       intro.fromTo(footer.querySelectorAll(".footer-navigation > a, .footer-navigation > button"),
-        { y: 20, rotationX: 9, transformPerspective: 800, opacity: .75 },
-        { y: 0, rotationX: 0, opacity: 1, duration: .62, stagger: .075, clearProps: "transform,opacity" }, .18);
-      ScrollTrigger.create({ trigger: main, start: "top 88%", once: true, animation: intro });
+        { x: 8, opacity: .75 },
+        { x: 0, opacity: 1, duration: .45, stagger: .055, clearProps: "transform,opacity" }, .12);
+      ScrollTrigger.create({ trigger: footer, start: "top 92%", once: true, animation: intro });
 
       // On phones this row arrives later, after the stacked navigation links.
       const closing = gsap.fromTo(bottom.querySelectorAll(".footer-signoff, .back-top, .footer-credits"),

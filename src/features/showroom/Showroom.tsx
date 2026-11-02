@@ -125,8 +125,9 @@ const Garment = memo(function Garment({
       state === "focus" ? angle : state === "front" ? -0.06 : REST_ANGLE,
     );
     g.scale.setScalar(advance(g.scale.x, scale));
-    // Everything not in focus fades back to a pale ghost on the rail.
-    const opacity = advance(material[0].opacity, state === "ghost" ? 0.2 : 1);
+    // Focus isolates the chosen garment while its neighbours fade out.
+    const opacity = advance(material[0].opacity, state === "ghost" ? 0 : 1);
+    g.visible = state !== "ghost" || opacity > .005;
     tint.copy(state === "ghost" ? ghost : white);
     for (const entry of animatedMaterials.current) {
       entry.opacity = opacity;
@@ -152,11 +153,13 @@ const Garment = memo(function Garment({
       rotation={[0, REST_ANGLE, 0]}
       scale={shape.scale}
       onPointerOver={(e) => {
+        if (state === "ghost") return;
         e.stopPropagation();
         onHover(index, true);
         document.body.style.cursor = "pointer";
       }}
       onPointerMove={(e) => {
+        if (state === "ghost") return;
         e.stopPropagation();
         if (e.pointerType !== "touch") onHover(index, true);
       }}
@@ -168,6 +171,7 @@ const Garment = memo(function Garment({
         down.current = [e.clientX, e.clientY];
       }}
       onPointerUp={(e) => {
+        if (state === "ghost") return;
         if (
           Math.hypot(e.clientX - down.current[0], e.clientY - down.current[1]) <
           8
@@ -205,6 +209,9 @@ function Setup({
 }) {
   const { gl, scene, camera, size, invalidate } = useThree();
   const targetZoom = useRef(80),
+    targetCameraX = useRef(0),
+    viewCenterY = useRef(VIEW_CENTER),
+    targetViewCenterY = useRef(VIEW_CENTER),
     initialized = useRef(false);
   useEffect(() => {
     const generator = new PMREMGenerator(gl),
@@ -221,20 +228,27 @@ function Setup({
     };
   }, [gl, scene, onReady]);
   useEffect(() => {
-    camera.position.set(0, VIEW_CENTER + 0.4, 11);
-    camera.lookAt(0, VIEW_CENTER, 0);
+    camera.position.y = viewCenterY.current + 0.4;
+    camera.position.z = 11;
+    camera.lookAt(camera.position.x, viewCenterY.current, 0);
     // Keep the same clear band above the rail in both modes: the hero caption
     // uses it while browsing, and the back button uses it during product focus.
     const framingHeight = size.height - 64;
     // Phones crop the rack ends a little so the garments stay a readable size.
     const zoom = Math.min(
-      size.width / (focused ? (size.width < 600 ? Math.max(3.5, focusedWidth + .55) : 7.4) : size.width < 600 ? 5.7 : 7.4),
+      size.width / (focused ? (size.width < 900 ? Math.max(4, focusedWidth + .55) : 7.4) : size.width < 600 ? 4.8 : 7.4),
       framingHeight / 5.2,
     );
     if ("zoom" in camera) {
       targetZoom.current = zoom;
+      targetCameraX.current = focused && size.width >= 900 ? size.width * .2 / zoom : 0;
+      targetViewCenterY.current = focused && size.width < 900 ? .7 : VIEW_CENTER;
       if (!initialized.current) {
         camera.zoom = zoom;
+        camera.position.x = targetCameraX.current;
+        viewCenterY.current = targetViewCenterY.current;
+        camera.position.y = viewCenterY.current + .4;
+        camera.lookAt(camera.position.x, viewCenterY.current, 0);
         camera.updateProjectionMatrix();
         initialized.current = true;
       }
@@ -243,8 +257,12 @@ function Setup({
     onScale(zoom, size.height / 2 - (RAIL - VIEW_CENTER) * zoom);
   }, [camera, size, onScale, focused, focusedWidth, invalidate]);
   useFrame((_, delta) => {
-    if (camera.zoom === targetZoom.current) return;
+    if (camera.zoom === targetZoom.current && camera.position.x === targetCameraX.current && viewCenterY.current === targetViewCenterY.current) return;
     camera.zoom = dampRail(camera.zoom, targetZoom.current, delta, reduced);
+    camera.position.x = dampRail(camera.position.x, targetCameraX.current, delta, reduced);
+    viewCenterY.current = dampRail(viewCenterY.current, targetViewCenterY.current, delta, reduced);
+    camera.position.y = viewCenterY.current + .4;
+    camera.lookAt(camera.position.x, viewCenterY.current, 0);
     camera.updateProjectionMatrix();
     invalidate();
   });
@@ -336,7 +354,7 @@ function Stage(props: StageProps) {
       </mesh>
       <group ref={entrance}>
       <group ref={railRoot} position={initialPan.current}>
-      <mesh position={[0, RAIL, 0]} rotation={[0, 0, Math.PI / 2]}>
+      <mesh visible={selected === null} position={[0, RAIL, 0]} rotation={[0, 0, Math.PI / 2]}>
         <cylinderGeometry args={[0.018, 0.018, Math.max(60, restingRail.width + 30), 16]} />
         <meshStandardMaterial color="#b9bdbc" metalness={0.7} roughness={0.3} />
       </mesh>

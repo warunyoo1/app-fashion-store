@@ -1,0 +1,17 @@
+.scroll-title-mask {
+  display: block;
+  overflow: clip;
+  perspective: 800px;
+  padding-block: .08em .15em;
+  margin-block: -.08em -.15em;
+}
+
+.scroll-title-line { display: block; }
+.scroll-title-line,
+.scroll-title-word { transform-origin: left bottom; }
+.scroll-title-word { display: inline-block; }
+
+/* Text is visible by default, including when motion is reduced or JS fails. */
+@media (prefers-reduced-motion: reduce) {
+  .scroll-title-mask { perspective: none; }
+}

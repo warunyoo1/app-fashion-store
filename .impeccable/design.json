@@ -59,6 +59,16 @@
         "name": "collection-marker",
         "value": "320ms power3.out",
         "purpose": "Interrupted tab selection continues from its displayed position."
+      },
+      {
+        "name": "scroll-type",
+        "value": "650–800ms expo.out; 65–90ms stagger; once at top 88%",
+        "purpose": "Word unfolding for the collection headline, quieter line arrivals for close-view/footer; reduced motion stays static and completed headings do not replay."
+      },
+      {
+        "name": "garment-interaction",
+        "value": "Direct drag; bounded damped hanger swing; 180ms prepared exit and 320–480ms arrival",
+        "purpose": "Physical garment feedback without continuous rendering. Vertical touch scroll stays native, pinch stays within 1.0–1.65x, reduced motion disables sway/exchange choreography."
       }
     ],
     "breakpoints": [
@@ -97,9 +107,9 @@
       "name": "Garment picker",
       "kind": "custom",
       "refersTo": "picker",
-      "description": "A bordered selection surface; actual product renders appear in the live control.",
+      "description": "A clean borderless white selection surface; actual product renders appear in the live control, with a visible keyboard focus outline.",
       "html": "<button class=\"ds-picker\"><span><strong>Tie-detail Shirt</strong><small>Shirts &amp; layers</small></span><span class=\"ds-disclosure\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"m6 9 6 6 6-6\"/></svg></span></button>",
-      "css": ".ds-picker{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:80px;width:100%;padding:12px 16px;border:1px solid var(--line,#dcded5);border-radius:16px;background:var(--surface,#fff);color:var(--ink,#292d2a);text-align:left;cursor:pointer;font-family:'DM Sans',sans-serif}.ds-picker span{display:grid;gap:5px}.ds-picker strong{font-size:14px;font-weight:600}.ds-picker small{font-size:11px;color:var(--muted,#62685f)}.ds-picker:hover{background:var(--paper,#fafaf7)}.ds-picker:focus-visible{outline:2px solid var(--focus,#4f6948);outline-offset:3px}.ds-picker:active{background:var(--cream,#f0efe9)}.ds-picker .ds-disclosure{display:grid;place-items:center;flex:none;width:32px;height:32px;gap:0;border-radius:50%;background:var(--cream,#f0efe9)}"
+      "css": ".ds-picker{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:80px;width:100%;padding:12px 16px;border:1px solid transparent;border-radius:16px;background:var(--surface,#fff);color:var(--ink,#292d2a);text-align:left;cursor:pointer;font-family:'DM Sans',sans-serif}.ds-picker span{display:grid;gap:5px}.ds-picker strong{font-size:14px;font-weight:600}.ds-picker small{font-size:11px;color:var(--muted,#62685f)}.ds-picker:hover{background:var(--paper,#fafaf7)}.ds-picker:focus-visible{outline:2px solid var(--focus,#4f6948);outline-offset:3px}.ds-picker:active{background:var(--cream,#f0efe9)}.ds-picker .ds-disclosure{display:grid;place-items:center;flex:none;width:32px;height:32px;gap:0;border-radius:50%;background:var(--cream,#f0efe9)}"
     },
     {
       "name": "Color selection",
@@ -111,9 +121,17 @@
     {
       "name": "Rail range",
       "kind": "input",
-      "description": "An accessible horizontal control for the actual garment position.",
+      "description": "A slim visual track with a 44px input target for the actual garment position.",
       "html": "<label class=\"ds-range\">เลื่อนราวเสื้อ<input type=\"range\" min=\"0\" max=\"100\" value=\"45\"></label>",
-      "css": ".ds-range{display:grid;gap:4px;max-width:320px;color:var(--muted,#62685f);font:12px 'DM Sans','Noto Sans Thai',sans-serif}.ds-range input{appearance:none;width:100%;height:44px;background:transparent;cursor:ew-resize}.ds-range input::-webkit-slider-runnable-track{height:4px;background:var(--line,#dcded5);border-radius:4px}.ds-range input::-webkit-slider-thumb{appearance:none;width:48px;height:12px;margin-top:-4px;border-radius:8px;background:var(--accent,#56634f)}.ds-range input:focus-visible{outline:2px solid var(--focus,#4f6948);outline-offset:2px}"
+      "css": ".ds-range{display:grid;gap:4px;max-width:200px;color:var(--muted,#62685f);font:12px 'DM Sans','Noto Sans Thai',sans-serif}.ds-range input{appearance:none;width:100%;height:44px;background:transparent;cursor:ew-resize}.ds-range input::-webkit-slider-runnable-track{height:2px;background:var(--line,#dcded5);border-radius:4px}.ds-range input::-webkit-slider-thumb{appearance:none;width:32px;height:8px;margin-top:-3px;border-radius:8px;background:var(--accent,#56634f)}.ds-range input:focus-visible{outline:2px solid var(--focus,#4f6948);outline-offset:2px}"
+    },
+    {
+      "name": "Detail pagination",
+      "kind": "custom",
+      "refersTo": "pagination",
+      "description": "Matching circular arrow actions with a centered product counter in one cream capsule.",
+      "html": "<div class=\"ds-pagination\" role=\"group\" aria-label=\"เลือกเสื้อทีละตัว\"><button aria-label=\"ก่อนหน้า\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"m15 18-6-6 6-6\"/></svg></button><span><strong>07</strong> / 12</span><button aria-label=\"ถัดไป\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"m9 18 6-6-6-6\"/></svg></button></div>",
+      "css": ".ds-pagination{display:grid;grid-template-columns:44px minmax(0,1fr) 44px;align-items:center;gap:12px;padding:5px;border-radius:999px;background:var(--cream,#f0efe9);font:14px \"DM Sans\",sans-serif;font-variant-numeric:tabular-nums}.ds-pagination>span{text-align:center;color:var(--muted,#62685f)}.ds-pagination strong{color:var(--ink,#292d2a);font-weight:600}.ds-pagination button{display:grid;place-items:center;width:44px;height:44px;padding:0;border:0;border-radius:50%;background:var(--surface,#fff);color:var(--ink,#292d2a);cursor:pointer;box-shadow:0 2px 6px #252c2308;transition:background-color 160ms ease-out,color 160ms ease-out}.ds-pagination button:hover{background:var(--ink,#292d2a);color:var(--surface,#fff)}.ds-pagination button:focus-visible{outline:2px solid var(--focus,#4f6948);outline-offset:2px}.ds-pagination button:active{background:var(--surface-hover,#e8e9e2);color:var(--ink,#292d2a);box-shadow:inset 0 1px 2px #252c2314}@media(prefers-reduced-motion:reduce){.ds-pagination button{transition:none}}"
     }
   ],
   "narrative": {
@@ -130,6 +148,16 @@
         "name": "The Material Rule",
         "body": "Change only allowlisted clothing materials on a cloned assembly. Replace their printed diffuse map with the chosen solid color and tuned roughness; preserve sculpted folds, normal/AO maps, UVs, geometry, source textures and untouched hardware.",
         "section": "colors"
+      },
+      {
+        "name": "Product focus",
+        "body": "Isolate the selected garment on studio white, with no visible rail or neighbours. Place inline colors, circular sizes and a full-width dark purchase capsule beside the model on desktop and below it under 900px. Keep top controls clear and provide exact-selection add feedback.",
+        "section": "layout"
+      },
+      {
+        "name": "Footer",
+        "body": "A 40–64px two-line invitation, compact unframed text navigation, one divider and a 44px wordmark. Keep creator source links visible and group an identical license into one link. Only the back-to-top arrow has a small circular surface; footer menus have no pill backgrounds or shadows. Blend the section boundary from studio white into cream, with no outer border; a bounded transform-only GSAP arrival expands the blend, while reduced motion uses the full static transition.",
+        "section": "components"
       }
     ],
     "dos": [

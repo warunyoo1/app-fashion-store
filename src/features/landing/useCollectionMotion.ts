@@ -1,22 +1,10 @@
 import { useLayoutEffect, useRef } from "react";
 import type { RefObject } from "react";
-import { gsap, ScrollTrigger, motionReduced } from "../../shared/motion/gsap";
+import { gsap, motionReduced } from "../../shared/motion/gsap";
 
 /** Keep the text and tab marker in step with the existing 3D collection change. */
 export function useCollectionMotion(root: RefObject<HTMLElement | null>, index: number, reduced: boolean) {
   const previous = useRef(index);
-  useLayoutEffect(() => {
-    if (!root.current || motionReduced(reduced)) return;
-    const context = gsap.context(() => {
-      const lines = root.current!.querySelectorAll(".edit-title-line");
-      const entrance = gsap.timeline({ paused: true, defaults: { ease: "power3.out" } });
-      entrance.fromTo(lines, { yPercent: 38, opacity: .6 },
-        { yPercent: 0, opacity: 1, duration: .7, stagger: .08, clearProps: "transform,opacity" });
-      ScrollTrigger.create({ trigger: root.current, start: "top 82%", once: true, animation: entrance });
-    }, root);
-    return () => context.revert();
-  }, [root, reduced]);
-
   useLayoutEffect(() => {
     const marker = root.current?.querySelector<HTMLElement>(".edit-tab-marker");
     if (!marker) return;

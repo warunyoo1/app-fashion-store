@@ -85,9 +85,9 @@
   padding: 0;
   border: 0;
   border-radius: 50%;
-  background: var(--surface);
+  background: transparent;
   color: var(--ink);
-  box-shadow: var(--shadow-control);
+  box-shadow: none;
 }
 .header-actions > .icon-button:hover { background: var(--cream); box-shadow: var(--shadow-button-hover); }
 .header-actions > .icon-button:active { box-shadow: var(--shadow-inset-light); }
@@ -100,7 +100,7 @@
   background: var(--cream);
   color: var(--ink);
 }
-.mobile-menu-trigger { display: none; place-items: center; background: var(--nav-surface); color: var(--nav-foreground); box-shadow: var(--shadow-raised-light); }
+.mobile-menu-trigger { display: none; place-items: center; background: transparent; color: var(--nav-foreground); box-shadow: none; }
 .mobile-menu-trigger:hover { background: var(--nav-active); }
 .mobile-navigation {
   position: fixed;

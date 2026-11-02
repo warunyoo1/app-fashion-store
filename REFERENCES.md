@@ -4,6 +4,7 @@ Reviewed 28 October 2026. The user chose the original clothing-rack landing page
 
 ## References
 
+- [Velvetica Studio clothing rail reel](https://www.instagram.com/reel/DfElkgEt56y/), viewed 2 November 2026: restrained clothing-rail browsing, a pale pink/mint surface, isolated product presentation, circular sizes and a dark capsule purchase action. Applied to RACK's existing React/Three.js rail and responsive focus layout; no paid section code, source garments or third-party branding were copied.
 - [Lusion](https://lusion.co/): the studio's own site combines 3D visual storytelling with conventional interface controls. Useful for spatial depth, restrained interface elements and motion that answers scrolling or pointer movement.
 - [Dioriviera by Immersive Garden](https://immersive-g.com/projects/dioriviera-1/): the creator's case study describes collection storytelling through designed 3D environments. Useful for coherent lighting, materials and product-led composition. Its linked campaign demo has a browser certificate error and was not bypassed.
 - [Lacoste Summer by Emperia](https://emperiavr.com/project/lacoste-summer/) and [UnderOutfit by MersivX](https://www.mersivx.com/case-studies/underoutfit) were researched as virtual-store alternatives. Their walkable-store direction is excluded from the final implementation after the user's clarification.
